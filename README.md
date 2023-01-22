@@ -6,7 +6,7 @@ insert home page img here!
 
 The doWell app is a wellness sharing app where users can sign up and make profiles to share their favorite wellness tips and products. This fullstack app will be made using a the MVC (Model, View, Controller) model. For more details, check out the rest of this repo.
 
-# Check out the
+# Check out the Web App
 
 -link will be here upon deployment
 
@@ -28,19 +28,73 @@ Users should be able to:
 # Wireframes
 
 - Home Page
+
   ![home page](./Images/homePage.png)
+
 - Sign Up Page
+
   ![sign up page](./Images/signUpPage.png)
+
 - Log In Page
+
   ![ log in page](./Images/logInPage.png)
+
 - MyCollections page
+
   ![ collections page](./Images/collectionsPage.png)
+
 - Create a Tip/Product
+
   ![create product page](./Images/createPage.png)
+
 - Wellness Feed
+
   ![Wellness Feed](./Images/wellnessFeed.png)
 
 # Entity Relationship Diagrams (ERDs)
+
+# Website Route Charts for Documents
+
+#### Products
+
+| **URL**   | **HTTP Verb** | **Action** |
+| --------- | ------------- | ---------- |
+| /         | GET           | index      |
+| /:id      | GET           | show       |
+| /new      | GET           | new        |
+|           | POST          | create     |
+| /:id/edit | GET           | edit       |
+| /:id      | PATCH/PUT     | update     |
+| /:id      | DELETE        | destroy    |
+
+#### Wellness Tips
+
+| **URL**   | **HTTP Verb** | **Action** |
+| --------- | ------------- | ---------- |
+| /         | GET           | index      |
+| /:id      | GET           | show       |
+| /new      | GET           | new        |
+|           | POST          | create     |
+| /:id/edit | GET           | edit       |
+| /:id      | PATCH/PUT     | update     |
+| /:id      | DELETE        | destroy    |
+
+#### Comments
+
+| **URL**                         | **HTTP Verb** | **Action** |
+| ------------------------------- | ------------- | ---------- |
+| /comments/:Id                   | POST          | create     |
+| /comments/delete/:Id/:commentId | DELETE        | destroy    |
+
+#### Users
+
+| **URL**       | **HTTP Verb** | **Action** |
+| ------------- | ------------- | ---------- |
+| /users/signup | GET           | new        |
+| /users/signup | POST          | create     |
+| /users/login  | GET           | login      |
+| /users/login  | POST          | create     |
+| /users/logout | DELETE        | destroy    |
 
 # Main Technologies Used:
 

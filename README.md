@@ -30,8 +30,15 @@ Users should be able to:
 - Home Page
   ![home page](./Images/homePage.png)
 - Sign Up Page
-
+  ![sign up page](./Images/signUpPage.png)
 - Log In Page
+  ![ log in page](./Images/logInPage.png)
+- MyCollections page
+  ![ collections page](./Images/collectionsPage.png)
+- Create a Tip/Product
+  ![create product page](./Images/createPage.png)
+- Wellness Feed
+  ![Wellness Feed](./Images/wellnessFeed.png)
 
 # Entity Relationship Diagrams (ERDs)
 

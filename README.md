@@ -53,6 +53,8 @@ Users should be able to:
 
 # Entity Relationship Diagrams (ERDs)
 
+![ERD image](./Images/erdImage.png)
+
 # Website Route Charts for Documents
 
 #### Products

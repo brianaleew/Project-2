@@ -4,11 +4,21 @@
 require("dotenv").config() // make env variables available
 const express = require("express")
 const middleware = require('./utils/middleware')
+
 const ExampleRouter = require('./controllers/example')
 const UserRouter = require('./controllers/user')
-const User = require("./models/user")
+
+
 // SEE MORE DEPENDENCIES IN ./utils/middleware.js
 // user and resource routes linked in ./utils/middleware.js
+
+//////////////////////////////
+// Import Models		    //
+//////////////////////////////
+const User = require("./models/user")
+const Product = require('./models/product')
+const WellnessTip = require('./models/wellnesstip')
+const Comment = require('./models/comment')
 
 //////////////////////////////
 // Middleware + App Object  //
@@ -17,12 +27,21 @@ const app = require("liquid-express-views")(express())
 
 middleware(app)
 
+
+
+
+
+
+
+app.use('/auth', UserRouter)
+app.use('/examples', ExampleRouter)
+
+
+
 ////////////////////
 //    Routes      //
 ////////////////////
 
-app.use('/auth', UserRouter)
-app.use('/examples', ExampleRouter)
 
 app.get('/', (req, res) => {
     const { username, userId, loggedIn } = req.session

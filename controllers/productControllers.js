@@ -91,7 +91,7 @@ router.get('/new', (req, res) => {
 
 // create -> POST route that actually calls the db and makes a new document
 router.post('/', (req, res) => {
-	req.body.ready = req.body.ready === 'on' ? true : false
+	
 
 	req.body.owner = req.session.userId
 	Product.create(req.body)

@@ -1,0 +1,29 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+  <div class="container-md">
+    <article>
+      <h2>
+        {{ product.title }} -
+        {% if product.ready %}
+          Ready
+        {% else %}
+          Not Ready
+        {% endif %}
+      </h2>
+      <h3>Amount: {{ product.amount }}</h3>
+      <h6>Body: {{ product.body }}</h6>
+      {% if product.owner == userId %}
+        <div class="btn-group">
+
+          <a href="/products/{{ product.id }}/edit" class="btn btn-primary">Edit</a>
+          <form action="/products/{{ product.id }}?_method=DELETE" method="POST">
+            <input
+              type="submit"
+              value="Delete"
+              class="btn btn-danger">
+          </form>
+        </div>
+      {% endif %}
+    </article>
+  </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+  <div>
+    <h2 class="display-6">All products</h2>
+    <div class="row">
+      {% for product in products %}
+        <div class="card" style="width: 18rem;">
+          <h5 class="card-header">{{ product.title }}</h5>
+          <div class="card-body">
+            <h5 class="card-title">
+              Ready?: {{ product.ready }}
+            </h5>
+            <p class="card-text">
+              Body: {{ product.body }}
+            </p>
+            <p class="card-text">
+              Amount: {{ product.amount }}
+            </p>
+            <a href="/products/{{ product.id }}" class="btn btn-info">
+              View {{ product.title }}
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

@@ -8,6 +8,7 @@ const middleware = require('./utils/middleware')
 const ExampleRouter = require('./controllers/example')
 const UserRouter = require('./controllers/user')
 const ProductRouter = require('./controllers/productControllers')
+const WellnessTipRouter = require('./controllers/wellnessTipControllers')
 
 
 
@@ -19,7 +20,7 @@ const ProductRouter = require('./controllers/productControllers')
 //////////////////////////////
 const User = require("./models/user")
 const Product = require('./models/product')
-const WellnessTip = require('./models/wellnesstip')
+const WellnessTip = require('./models/wellnessTip')
 const Comment = require('./models/comment')
 
 //////////////////////////////
@@ -38,6 +39,7 @@ middleware(app)
 app.use('/auth', UserRouter)
 app.use('/examples', ExampleRouter)
 app.use('/products', ProductRouter)
+app.use('/wellnessTips', WellnessTipRouter)
 
 
 

@@ -1,0 +1,27 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+  <div>
+    <h2 class="display-6">All wellnessTips</h2>
+    <div class="row">
+      {% for wellnessTip in wellnessTips %}
+        <div class="card" style="width: 18rem;">
+          <h5 class="card-header">{{ wellnessTip.title }}</h5>
+          <div class="card-body">
+            <h5 class="card-title">
+              Ready?: {{ wellnessTip.ready }}
+            </h5>
+            <p class="card-text">
+              Body: {{ wellnessTip.body }}
+            </p>
+            <p class="card-text">
+              Amount: {{ wellnessTip.amount }}
+            </p>
+            <a href="/wellnessTips/{{ wellnessTip.id }}" class="btn btn-info">
+              View {{ wellnessTip.title }}
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

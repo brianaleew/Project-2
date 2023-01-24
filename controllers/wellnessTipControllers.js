@@ -56,7 +56,7 @@ router.get('/new', (req, res) => {
 
 // create -> POST route that actually calls the db and makes a new document
 router.post('/', (req, res) => {
-	req.body.ready = req.body.ready === 'on' ? true : false
+	
 
 	req.body.owner = req.session.userId
 	WellnessTip.create(req.body)
@@ -64,9 +64,10 @@ router.post('/', (req, res) => {
 			console.log('this was returned from create', wellnessTip)
 			res.redirect('/wellnessTips')
 		})
-		.catch(error => {
-			res.redirect(`/error?error=${error}`)
-		})
+		// .catch(error => {
+		// 	res.redirect(`/error?error=${error}`)
+		// })
+        .catch(err => console.log(err))
 })
 
 // edit route -> GET that takes us to the edit form view

@@ -103,17 +103,23 @@ router.get('/new', (req, res) => {
 // create -> POST route that actually calls the db and makes a new document
 router.post('/', (req, res) => {
 	
-
-	req.body.owner = req.session.userId
-	Product.create(req.body)
+		const newProduct = req.body
+	// req.body.owner = req.session.userId
+	Product.create(newProduct)
+		// .then(product => {
+		// 	console.log('this was returned from create', product)
+		// 	// res.redirect('/products')
+        //     res.sendStatus(201)
+		// })
+		// .catch(error => {
+		// 	res.redirect(`/error?error=${error}`)
+		// })
 		.then(product => {
-			console.log('this was returned from create', product)
-			// res.redirect('/products')
-            res.sendStatus(201)
-		})
-		.catch(error => {
-			res.redirect(`/error?error=${error}`)
-		})
+            res.status(201).json({ product: product.toObject() })
+        })
+        // send an error if one occurs
+        .catch(err => console.log(err))
+
 })
 
 // edit route -> GET that takes us to the edit form view

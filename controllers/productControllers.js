@@ -56,38 +56,27 @@ router.get('/seed', (req, res) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
 // index ALL
 router.get('/', (req, res) => {
 	Product.find({})
-		// .then(products => {
-			// const username = req.session.username
-			// const loggedIn = req.session.loggedIn
+		.then(products => {
+			const username = req.session.username
+			const loggedIn = req.session.loggedIn
 			
-			// res.render('products/', { products, username, loggedIn })
-			.then(products => { res.json({ products: products })})
-		// })
+			res.render('products/index', { products, username, loggedIn })
+		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)
 		})
 })
 
-// index that shows only the user's examples
+// index that shows only the user's products
 router.get('/mine', (req, res) => {
     // destructure user info from req.session
     const { username, userId, loggedIn } = req.session
-	Example.find({ owner: userId })
-		.then(examples => {
-			res.render('examples/index', { examples, username, loggedIn })
+	Product.find({ owner: userId })
+		.then(products => {
+			res.render('products/index', { products, username, loggedIn })
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)
@@ -97,38 +86,31 @@ router.get('/mine', (req, res) => {
 // new route -> GET route that renders our page with the form
 router.get('/new', (req, res) => {
 	const { username, userId, loggedIn } = req.session
-	res.render('examples/new', { username, loggedIn })
+	res.render('products/new', { username, loggedIn })
 })
 
 // create -> POST route that actually calls the db and makes a new document
 router.post('/', (req, res) => {
-	
-		const newProduct = req.body
-	// req.body.owner = req.session.userId
-	Product.create(newProduct)
-		// .then(product => {
-		// 	console.log('this was returned from create', product)
-		// 	// res.redirect('/products')
-        //     res.sendStatus(201)
-		// })
-		// .catch(error => {
-		// 	res.redirect(`/error?error=${error}`)
-		// })
-		.then(product => {
-            res.status(201).json({ product: product.toObject() })
-        })
-        // send an error if one occurs
-        .catch(err => console.log(err))
+	req.body.ready = req.body.ready === 'on' ? true : false
 
+	req.body.owner = req.session.userId
+	Product.create(req.body)
+		.then(product => {
+			console.log('this was returned from create', product)
+			res.redirect('/products')
+		})
+		.catch(error => {
+			res.redirect(`/error?error=${error}`)
+		})
 })
 
 // edit route -> GET that takes us to the edit form view
 router.get('/:id/edit', (req, res) => {
 	// we need to get the id
-	const exampleId = req.params.id
-	Example.findById(exampleId)
-		.then(example => {
-			res.render('examples/edit', { example })
+	const productId = req.params.id
+	Product.findById(productId)
+		.then(product => {
+			res.render('products/edit', { product })
 		})
 		.catch((error) => {
 			res.redirect(`/error?error=${error}`)
@@ -137,12 +119,12 @@ router.get('/:id/edit', (req, res) => {
 
 // update route
 router.put('/:id', (req, res) => {
-	const exampleId = req.params.id
+	const productId = req.params.id
 	req.body.ready = req.body.ready === 'on' ? true : false
 
-	Example.findByIdAndUpdate(exampleId, req.body, { new: true })
-		.then(example => {
-			res.redirect(`/examples/${example.id}`)
+	Product.findByIdAndUpdate(productId, req.body, { new: true })
+		.then(product => {
+			res.redirect(`/products/${product.id}`)
 		})
 		.catch((error) => {
 			res.redirect(`/error?error=${error}`)
@@ -151,11 +133,11 @@ router.put('/:id', (req, res) => {
 
 // show route
 router.get('/:id', (req, res) => {
-	const exampleId = req.params.id
-	Example.findById(exampleId)
-		.then(example => {
+	const productId = req.params.id
+	Product.findById(productId)
+		.then(product => {
             const {username, loggedIn, userId} = req.session
-			res.render('examples/show', { example, username, loggedIn, userId })
+			res.render('products/show', { product, username, loggedIn, userId })
 		})
 		.catch((error) => {
 			res.redirect(`/error?error=${error}`)
@@ -164,15 +146,18 @@ router.get('/:id', (req, res) => {
 
 // delete route
 router.delete('/:id', (req, res) => {
-	const exampleId = req.params.id
-	Example.findByIdAndRemove(exampleId)
-		.then(example => {
-			res.redirect('/examples')
+	const productId = req.params.id
+	Product.findByIdAndRemove(productId)
+		.then(product => {
+			res.redirect('/products')
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)
 		})
 })
+
+
+
 
 // Export the Router
 module.exports = router

@@ -7,6 +7,8 @@ const middleware = require('./utils/middleware')
 
 const ExampleRouter = require('./controllers/example')
 const UserRouter = require('./controllers/user')
+const ProductRouter = require('./controllers/productControllers')
+
 
 
 // SEE MORE DEPENDENCIES IN ./utils/middleware.js
@@ -35,6 +37,7 @@ middleware(app)
 
 app.use('/auth', UserRouter)
 app.use('/examples', ExampleRouter)
+app.use('/products', ProductRouter)
 
 
 

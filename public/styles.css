@@ -1,0 +1,45 @@
+body {
+    background: rgb(2,0,36);
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    text-align: center;
+    color: purple;
+    font-family: 'Alice', serif;
+    
+
+}
+
+.content-container {
+    background-color: aliceblue;
+    width: 1000px;
+    height: 1200px;
+    margin: 50px auto;
+    border-radius: 30px;
+    
+
+
+}
+
+nav, ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style-type: none;
+   text-decoration: none;
+   margin: 0;
+}
+
+nav, li {
+    padding: 0 20px;
+}
+
+.title {
+    margin: 0 300px 0 0;
+    font-size: 20px; 
+}
+
+.home {
+    width: 800px;
+    height: 100%;
+    background-color: pink;
+    margin: 0 auto;
+}

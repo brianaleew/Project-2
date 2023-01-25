@@ -1,0 +1,67 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+
+  <div class="">
+    <h2 class="display-6">Wellness Feed</h2>
+    <div class="row">
+      {% for wellnessTip in wellnessTips %}
+        <div class="card" style="width: 18rem;">
+          <h5 class="card-header">{{ wellnessTip.title }}</h5>
+          <h5 class="card-header">Good For: {{ wellnessTip.goodFor }}</h5>
+          <div class="card-body">
+
+            <p class="card-text">
+              Description: {{ wellnessTip.description }}
+            </p>
+            <p class="card-text">
+              Sources: {{ wellnessTip.source }}
+            </p>
+            <a href="/wellnessTips/{{ wellnessTip.id }}" class="btn btn-info">
+              View {{ wellnessTip.title }}
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+
+
+  <h2 class="display-6">All products</h2>
+  <div class="row">
+    {% for product in products %}
+      <div class="card" style="width: 18rem;">
+        <h5 class="card-header">{{ product.brand }}</h5>
+        <h5 class="card-header">{{ product.name }}</h5>
+
+        <div class="card-body">
+          <h5 class="card-title">
+            About {{ product.name }}:
+          </h5>
+          <h5 class="card-title">
+            Rating:{{ product.personalRating }}
+          </h5>
+          <p class="card-text">
+            Good For: {{ product.goodFor }}
+          </p>
+          <p class="card-text">
+            Skin Types: {{ product.skinType }}
+          </p>
+          <p class="card-text">
+            Time Used: {{ product.timeUsed }}
+          </p>
+          <p class="card-text">
+            Description: {{ product.description }}
+          </p>
+
+          <a href="/products/{{ product.id }}" class="btn btn-info">
+            View {{ product.title }}
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+
+
+{% endblock %}

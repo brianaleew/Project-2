@@ -9,6 +9,7 @@ const ExampleRouter = require('./controllers/example')
 const UserRouter = require('./controllers/user')
 const ProductRouter = require('./controllers/productControllers')
 const WellnessTipRouter = require('./controllers/wellnessTipControllers')
+const CollectionRouter = require('./controllers/collectionControllers')
 
 
 
@@ -40,6 +41,7 @@ app.use('/auth', UserRouter)
 app.use('/examples', ExampleRouter)
 app.use('/products', ProductRouter)
 app.use('/wellnessTips', WellnessTipRouter)
+app.use('/collection', CollectionRouter)
 
 
 

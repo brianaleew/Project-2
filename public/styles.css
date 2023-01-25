@@ -1,16 +1,21 @@
 body {
-    background: rgb(2,0,36);
-    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    /* background: rgb(2,0,36);
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%); */
+    background: rgb(198,174,238);
+background: radial-gradient(circle, rgba(198,174,238,1) 0%, rgba(54,40,105,1) 100%);
+    
     text-align: center;
-    color: purple;
+    color: #770aed;
+    /* color: rgb(61, 60, 60); */
     font-family: 'Alice', serif;
     
 
 }
 
 .content-container {
-    background-color: aliceblue;
-    width: 1000px;
+    background: rgb(198,174,238);
+background: linear-gradient(0deg, rgba(198,174,238,1) 0%, rgba(246,246,246,1) 100%);
+    width: 1200px;
     height: 1200px;
     margin: 50px auto;
     border-radius: 30px;
@@ -32,9 +37,8 @@ nav, li {
     padding: 0 20px;
 }
 
-.title {
-    margin: 0 300px 0 0;
-    font-size: 20px; 
+.welcome {
+    font-size: 70px;
 }
 
 .home {
@@ -43,3 +47,24 @@ nav, li {
     background-color: pink;
     margin: 0 auto;
 }
+
+.inner-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    
+    
+}
+
+.logo {
+    width:100px;
+    height: 100px;
+    background-image:url('://cdn.freelogodesign.org/files/2ca98406b5cb4aa392b11f0677473b5c/thumb/logo_200x200.png?v=638101844560000000');
+    
+
+}
+
+.column-a {
+    text-align: left;
+    
+}
+

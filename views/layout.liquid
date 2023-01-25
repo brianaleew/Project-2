@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auth</title>
+    <title>doWell</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alice&family=Lobster&display=swap" rel="stylesheet">
     <!-- link in bootstrap stylesheet from the CDN-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="/styles.css">
@@ -14,13 +17,66 @@
 
 <body>
     <header>
-        {% render './navbar.liquid', loggedIn: loggedIn, username: username, userId: userId %}
+        <a href="/" class="navbar-brand logo"><img src="https://cdn.freelogodesign.org/files/2ca98406b5cb4aa392b11f0677473b5c/thumb/logo_200x200.png?v=638101844560000000" alt="logo"></a>
+       
     </header>
     <main>
-        {% block content %} 
-        
+          {% comment  %}  
+        {% render './navbar.liquid', loggedIn: loggedIn, username: username, userId: userId %}
+    {% endcomment %}
+        <div class="container">
+            <div class="content-container container-lg">
+                <nav>
+                    <div class="container-md">
+                        <nav class="navbar navbar-expand-md navbar-dark bg-light">
+                            <div class="container-fluid">
+                              <a href="/" class="navbar-brand">doWell</a>
+                              
+                              {% if loggedIn %}
+                                <a href="/examples/mine" class="nav-link text-light">Hello {{ username }}
+                                </a>
+                              {% endif %}
+                              <button
+                                class="navbar-toggler"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#navbarNav"
+                                aria-controls="navbarNav"
+                                aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                              </button>
+                              <div class="collapse navbar-collapse" id="navbarNav">
+                                {% if loggedIn %}
+                                  <a href="/examples" class="nav-link text-light">View All</a>
+                                  <a href="/examples/new" class="nav-link text-light">New</a>
+                                  <a href="/examples/mine" class="nav-link text-light">My Examples</a>
+                                  <a href="/auth/logout" class="nav-link text-light">Log Out</a>
+                                  <a href="/wellnessTips" class="nav-link text-light">View All</a>
+                                  <a href="/wellnessTips/new" class="nav-link text-light">New</a>
+                                  <a href="/wellnessTips/mine" class="nav-link text-light">My wellnessTips</a>
+                                  <a href="/products" class="nav-link text-light">View All</a>
+                                  <a href="/products/new" class="nav-link text-light">New</a>
+                                  <a href="/products/mine" class="nav-link text-light">My Products</a>
+                                {% else %}
+                                  <a href="/auth/signup" class="nav-link text-light">Sign Up</a>
+                                  <a href="/auth/login" class="nav-link text-light">Sign In</a>
+                                {% endif %}
+                        
+                            
+            
+                </nav>
+                {% block content %} 
 
-        {% endblock %}
+                {% endblock %}
+           
+            </div>
+          
+            </div>
+            </div>
+            </div>
+     
+      
     </main>
     <footer></footer>
     <!-- link in bootstrap scripts -->

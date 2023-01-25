@@ -19,6 +19,25 @@ router.use((req, res, next) => {
 	}
 })
 
+//TEMP SEED DATA FOR TESTING 
+router.get('/seed', (req, res) => {
+    // array of starter tips
+    const starterWellnessTips = [
+        {title: 'Raspberry Tea', description: 'this tea has helped me significantly decrease my period cramps', goodFor: ['mentrual cramps'] },
+        {title: 'Malasana (Garland Pose)', description: 'This pose stretches the lower body making it great for lower back pain!', source: 'https://www.yogajournal.com/poses/yoga-by-benefit/back-pain/yoga-lower-back-pain/'}
+    ]
+    WellnessTip.deleteMany({})
+        .then(() => {
+            // then we'll seed(create) our starter fruits
+            WellnessTip.create(starterWellnessTips)
+                // tell our db what to do with success and failures
+                .then(data => {
+                    res.json(data)
+                })
+                .catch(err => console.log('The following error occurred: \n', err))
+        })
+})
+
 // Routes
 
 // index ALL

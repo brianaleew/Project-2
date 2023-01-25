@@ -6,15 +6,14 @@
       {% for wellnessTip in wellnessTips %}
         <div class="card" style="width: 18rem;">
           <h5 class="card-header">{{ wellnessTip.title }}</h5>
+          <h5 class="card-header">Good For: {{ wellnessTip.goodFor }}</h5>
           <div class="card-body">
-            <h5 class="card-title">
-              Ready?: {{ wellnessTip.ready }}
-            </h5>
+
             <p class="card-text">
-              Body: {{ wellnessTip.body }}
+              Description: {{ wellnessTip.description }}
             </p>
             <p class="card-text">
-              Amount: {{ wellnessTip.amount }}
+              Sources: {{ wellnessTip.source }}
             </p>
             <a href="/wellnessTips/{{ wellnessTip.id }}" class="btn btn-info">
               View {{ wellnessTip.title }}

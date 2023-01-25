@@ -3,30 +3,32 @@
   <div class="container-sm">
     <form action="/wellnessTips" method="POST">
       <fieldset>
-        <legend>Create New wellnessTip</legend>
-        <label class="form-label">Title:
+        <legend>Create New Wellness Tip</legend>
+        <label class="form-label">Title/Name
         </label>
         <input
           type="text"
-          name="title"
-          placeholder="enter wellnessTip title"
+          name="title/name"
+          placeholder="Enter a title for your Tip"
           class="form-control">
-        <label class="form-label">Body:</label>
+        <label class="form-label">Description</label>
         <input
           type="text"
-          name="body"
-          placeholder="enter wellnessTip body"
+          name="description"
+          placeholder="Tell us about your tip"
           class="form-control">
-        <label class="form-label">Amount:</label>
+        <label class="form-label">Good For</label>
         <input
-          type="number"
-          name="amount"
+          type="text"
+          name="good for"
+          placeholder="What does this tip help with?"
           class="form-control">
-        <label class="form-label">Ready:</label>
+        <label class="form-label">Sources</label>
         <input
-          type="checkbox"
-          name="ready"
-          class="form-check-input">
+          type="text"
+          name="sources"
+          placeholder="Support your tip with a link to a source"
+          class="form-control">
       </fieldset>
       <input
         type="submit"

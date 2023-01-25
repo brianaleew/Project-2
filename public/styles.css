@@ -17,7 +17,7 @@ background: radial-gradient(circle, rgba(198,174,238,1) 0%, rgba(54,40,105,1) 10
     background: rgb(198,174,238);
 background: linear-gradient(0deg, rgba(198,174,238,1) 0%, rgba(246,246,246,1) 100%);
     width: 1200px;
-    height: 1200px;
+    height: 100%;
     margin: 50px auto;
     border-radius: 30px;
     
@@ -93,8 +93,8 @@ nav, li {
 
 .feed-container {
     background-image: url('https://img.freepik.com/premium-photo/skin-care-cream-white-tube-with-lavender-flowers-purple-background-top-view-copy-space_541595-716.jpg?w=2000');
-    background-size: contain;
-    background-repeat: no-repeat;
+    background-size: 100%;
+    background-repeat: repeat-y;
     display: flex;
     flex-direction: column;
     justify-content: right;
@@ -136,7 +136,10 @@ I need a route that displays all the users wellness tips AND products (My Collec
  
  to do list: 
 
- update the design for show routes: products and wellnessTip
  fix error with creating new --> style edit the edit pages and go back to show pages
- 
+ add images to models
+
+
+ comment controllers!!!
+ comment liquid!!!
  */

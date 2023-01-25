@@ -1,17 +1,13 @@
 {% layout 'layout.liquid' %}
 {% block content %}
   <div class="container-md">
-    <article>
+    <article class="show-item">
       <h2>
         {{ wellnessTip.title }} -
-        {% if wellnessTip.ready %}
-          Ready
-        {% else %}
-          Not Ready
-        {% endif %}
+
       </h2>
-      <h3>Amount: {{ wellnessTip.amount }}</h3>
-      <h6>Body: {{ wellnessTip.body }}</h6>
+      <h3>Good For: {{ wellnessTip.goodFor }}</h3>
+      <h6>Description: {{ wellnessTip.description }}</h6>
       {% if wellnessTip.owner == userId %}
         <div class="btn-group">
 

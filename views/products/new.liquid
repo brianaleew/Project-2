@@ -1,37 +1,65 @@
 {% layout 'layout.liquid' %}
 {% block content %}
-  <div class="container-sm">
-    <form action="/products" method="POST">
-      <fieldset>
-        <legend>Create New product</legend>
-        <label class="form-label">Title:
-        </label>
+
+  <div class="inner-content">
+    <div class="container-sm ">
+      <form action="/products" method="POST">
+        <fieldset>
+          <legend>Create New product</legend>
+          <label class="form-label">Product Name:
+          </label>
+          <input
+            type="text"
+            name="Product Name"
+            placeholder="enter product name"
+            class="form-control">
+          <label class="form-label">Brand:
+          </label>
+          <input
+            type="text"
+            name="Brand"
+            placeholder="Enter brand name"
+            class="form-control">
+          <label class="form-label">Personal Rating:
+          </label>
+          <input
+            type="number"
+            name="Brand"
+            placeholder="1-10"
+            class="form-control">
+          <label class="form-label">Description:</label>
+          <input
+            type="text"
+            name="description"
+            placeholder="Tell us about the product!"
+            class="form-control">
+          <label class="form-label">Good For:</label>
+          <input
+            type="text"
+            name="Good For"
+            placeholder="What does your product help with?"
+            class="form-control">
+          <label class="form-label">Skin Types:</label>
+          <input
+            type="text"
+            name="Skin Types"
+            placeholder="Which skin type is this product for?(can be for All skin types!)"
+            class="form-control">
+          <label class="form-label">Time Used:</label>
+          <input
+            type="text"
+            name="Time Used"
+            placeholder="How long have you used this product?"
+            class="form-control">
+
+        </fieldset>
         <input
-          type="text"
-          name="title"
-          placeholder="enter product title"
-          class="form-control">
-        <label class="form-label">Body:</label>
-        <input
-          type="text"
-          name="body"
-          placeholder="enter product body"
-          class="form-control">
-        <label class="form-label">Amount:</label>
-        <input
-          type="number"
-          name="amount"
-          class="form-control">
-        <label class="form-label">Ready:</label>
-        <input
-          type="checkbox"
-          name="ready"
-          class="form-check-input">
-      </fieldset>
-      <input
-        type="submit"
-        value="Create New product"
-        class="btn btn-success">
-    </form>
+          type="submit"
+          value="Share New product"
+          class="btn btn-success">
+      </form>
+    </div>
+
   </div>
+
 {% endblock %}

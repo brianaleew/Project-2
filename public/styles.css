@@ -12,6 +12,7 @@ background: radial-gradient(circle, rgba(198,174,238,1) 0%, rgba(54,40,105,1) 10
 
 }
 
+/* Main Layout (layout.liquid) */
 .content-container {
     background: rgb(198,174,238);
 background: linear-gradient(0deg, rgba(198,174,238,1) 0%, rgba(246,246,246,1) 100%);
@@ -37,24 +38,6 @@ nav, li {
     padding: 0 20px;
 }
 
-.welcome {
-    font-size: 70px;
-}
-
-.home {
-    width: 800px;
-    height: 100%;
-    background-color: pink;
-    margin: 0 auto;
-}
-
-.inner-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    
-    
-}
-
 .logo {
     width:100px;
     height: 100px;
@@ -62,9 +45,64 @@ nav, li {
     
 
 }
+.navbar {
+    background-color: rgba(198,174,238,1);
+}
+
+
+/* Home page Styling (index.liquid) */
+.welcome {
+    font-size: 80px;
+}
+
+/* .home {
+    width: 800px;
+    height: 100%;
+    background-color: pink;
+    margin: 0 auto;
+} */
+
+.inner-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    
+    
+}
+.homepage-img {
+    /* grid-column-start: span 2; */
+    grid-row-start: span 3;
+}
+
+
 
 .column-a {
     text-align: left;
     
 }
 
+/* Form Page Styling */
+
+
+
+/* My Collection Styling */
+
+
+
+/* Wellness Feed Styling */
+
+
+
+/* NOTES 
+I need a route that displays all the users wellness tips AND products (My Collection)
+ a.k.a combine My wellness tips and My products into one link
+ 
+ 
+ I need a route that shows an index of ALL wellness tips AND products
+ this link will be called Wellness Feed!
+ 
+ 
+ 
+ 
+ Want to add images to my models!
+ Would affect how indexes look
+ */

@@ -5,17 +5,26 @@
     <div class="row">
       {% for product in products %}
         <div class="card" style="width: 18rem;">
-          <h5 class="card-header">{{ product.title }}</h5>
+          <h5 class="card-header">{{ product.brand }}</h5>
+          <h5 class="card-header">{{ product.name }}</h5>
+
           <div class="card-body">
             <h5 class="card-title">
-              Ready?: {{ product.ready }}
+              About {{ product.name }}:
+            </h5>
+            <h5 class="card-title">
+              Rating:{{ product.personalRating }}
             </h5>
             <p class="card-text">
-              Body: {{ product.body }}
+              Good For: {{ product.goodFor }}
             </p>
             <p class="card-text">
-              Amount: {{ product.amount }}
+              Skin Types: {{ product.skinType }}
             </p>
+            <p class="card-text">
+              Description: {{ product.description }}
+            </p>
+
             <a href="/products/{{ product.id }}" class="btn btn-info">
               View {{ product.title }}
             </a>

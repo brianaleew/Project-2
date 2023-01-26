@@ -33,7 +33,7 @@
                               <a href="/" class="navbar-brand">doWell</a>
                               
                               {% if loggedIn %}
-                                <a href="/examples/mine" class="nav-link text-light"> Hi, {{ username }}
+                                <a href="/collection/mine" class="nav-link text-light"> Hi, {{ username }}
                                 </a>
                               {% endif %}
                               <button
@@ -51,15 +51,17 @@
                                   
                                 <a href="/collection/feed" class="nav-link text-light">Wellness Feed</a>
                                   <a href="/auth/logout" class="nav-link text-light">Log Out</a>
-                                  <a href="/wellnessTips" class="nav-link text-light">View All</a>
+                                  
                                   <a href="/wellnessTips/new" class="nav-link text-light">New</a>
-                                  <a href="/wellnessTips/mine" class="nav-link text-light">My wellnessTips</a>
-                                  <a href="/products" class="nav-link text-light">View All</a>
+  
+                                 
                                   <a href="/products/new" class="nav-link text-light">New</a>
-                                  <a href="/products/mine" class="nav-link text-light">My Products</a>
+                                  
+                                  <a href="/collection/mine" class="nav-link text-light">My Collection</a>
                                 {% else %}
                                   <a href="/auth/signup" class="nav-link text-light">Sign Up</a>
                                   <a href="/auth/login" class="nav-link text-light">Sign In</a>
+                                  <a href="/collection/feed" class="nav-link text-light">Wellness Feed</a>
                                 {% endif %}
                         
                             

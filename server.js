@@ -10,7 +10,7 @@ const UserRouter = require('./controllers/user')
 const ProductRouter = require('./controllers/productControllers')
 const WellnessTipRouter = require('./controllers/wellnessTipControllers')
 const CollectionRouter = require('./controllers/collectionControllers')
-
+const CommentRouter = require('./controllers/commentControllers')
 
 
 // SEE MORE DEPENDENCIES IN ./utils/middleware.js
@@ -42,6 +42,7 @@ app.use('/examples', ExampleRouter)
 app.use('/products', ProductRouter)
 app.use('/wellnessTips', WellnessTipRouter)
 app.use('/collection', CollectionRouter)
+app.use('/comments', CommentRouter)
 
 
 
@@ -49,12 +50,12 @@ app.use('/collection', CollectionRouter)
 //    Routes      //
 ////////////////////
 
-
+//Home page Route
 app.get('/', (req, res) => {
     const { username, userId, loggedIn } = req.session
 	res.render('index.liquid', { loggedIn, username, userId })
 })
-
+//Error page Route
 app.get('/error', (req, res) => {
 	const error = req.query.error || 'This Page Does Not Exist'
     const { username, loggedIn, userId } = req.session

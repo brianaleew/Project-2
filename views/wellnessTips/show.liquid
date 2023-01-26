@@ -8,6 +8,22 @@
       </h2>
       <h3>Good For: {{ wellnessTip.goodFor }}</h3>
       <h6>Description: {{ wellnessTip.description }}</h6>
+      <form action="/comments/{{ product.id }}" method="POST">
+      <fieldset>
+        <legend>Add Comment</legend>
+        <label class="form-label">comment:
+        </label>
+        <input
+          type="text"
+          name="note"
+          class="form-control mb-1">
+      </fieldset>
+      <input
+        type="submit"
+        class="btn btn-success"
+        value="add comment">
+    </form>
+      
       {% if wellnessTip.owner == userId %}
         <div class="btn-group">
 

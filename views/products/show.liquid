@@ -17,6 +17,23 @@
         <h6>Skin Types: {{ product.skinType }}</h6>
         <h6>Time Used: {{ product.timeUsed }}</h6>
         <h6>Description: {{ product.description }}</h6>
+        <form action="/comments/{{ product.id }}" method="POST">
+          <fieldset>
+            <legend>Add Comment</legend>
+            <label class="form-label">comment:
+            </label>
+            <input
+              type="text"
+              name="note"
+              class="form-control mb-1">
+          </fieldset>
+          <input
+            type="submit"
+            class="btn btn-success"
+            value="add comment">
+        </form>
+
+
         {% if product.owner == userId %}
           <div class="btn-group">
             <a href="/products/{{ product.id }}/edit" class="btn btn-primary">Edit</a>
@@ -27,6 +44,7 @@
                 class="btn btn-danger">
             </form>
           </div>
+
         </div>
       {% endif %}
     </article>

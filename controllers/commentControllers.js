@@ -39,6 +39,7 @@ router.post('/:wellnessTipId', (req, res) => {
     console.log('THIS IS THE SESSION:', req.session)
     if(req.session.loggedIn) {
         req.body.owner = req.session.userId
+        
         const theComment = req.body
         console.log(`THIS IS THE WELLNESS TIP ${wellnessTipId}`)
         WellnessTip.findById(wellnessTipId)

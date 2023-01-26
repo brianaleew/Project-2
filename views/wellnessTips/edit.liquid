@@ -1,39 +1,37 @@
 {% layout 'layout.liquid' %}
 {% block content %}
   <div class="container-sm">
-    <form action="/wellnessTips?_method=PUT" method="POST">
+    <form action="/wellnessTips" method="POST">
       <fieldset>
-        <legend>Create New wellnessTip</legend>
-        <label class="form-label">Title:
+        <legend>
+          Edit {{ wellnessTip.title }}</legend>
+        <label class="form-label">Title/Name
         </label>
         <input
           type="text"
           name="title"
-          placeholder="{{ wellnessTip.title }}"
-          value="{{ wellnessTip.title }}"
+          placeholder="Enter a title for your Tip"
           class="form-control">
-        <label class="form-label">Body:</label>
+        <label class="form-label">Description</label>
         <input
           type="text"
-          name="body"
-          placeholder="{{ wellnessTip.body }}"
-          value="{{ wellnessTip.body }}"
+          name="description"
+          placeholder="Tell us about your tip"
           class="form-control">
-        <label class="form-label">Amount:</label>
+        <label class="form-label">Good For</label>
         <input
-          type="number"
-          name="amount"
-          value="{{ wellnessTip.amount }}"
+          type="text"
+          name="goodFor"
+          placeholder="What does this tip help with?"
           class="form-control">
-        <label class="form-label">Ready:</label>
+        <label class="form-label">Sources</label>
         <input
-          type="checkbox"
-          name="ready"
-          class="form-check-input"
-          {% if wellnessTip.ready %}
-          checked
-          {% endif %}>
+          type="text"
+          name="source"
+          placeholder="Support your tip with a link to a source"
+          class="form-control">
       </fieldset>
+
       <input
         type="submit"
         value="Edit wellnessTip"

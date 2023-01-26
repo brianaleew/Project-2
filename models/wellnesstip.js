@@ -39,3 +39,6 @@ const WellnessTip = model('WellnessTip', wellnessTipSchema)
 ////////////////////////////////
 
 module.exports = WellnessTip  
+
+
+//

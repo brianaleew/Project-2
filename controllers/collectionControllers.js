@@ -23,13 +23,17 @@ router.get('/feed', (req, res) => {
 	// let allProducts
 	const { username, loggedIn } = req.session 
 	Product.find({})
+		.populate('comments.note')
+		.populate('comments.owner')
 		.then( products => {
 			// allProducts = products
 			// console.log('This is ALL PRODUCTS:', allProducts)
 			WellnessTip.find({})
+				.populate('comments.note')
+				.populate('owner')
 				.then( wellnessTips => {
-					// let allTips = wellnessTips
-					// console.log('THESE ARE THE TIPS', allTips)
+					let allTips = wellnessTips
+					console.log('THESE ARE THE TIPS', allTips)
 					res.render('collection/feed', { products, wellnessTips, username, loggedIn })
 
 				})
@@ -61,6 +65,8 @@ router.get('/mine', (req, res) => {
 	let userProducts
 	const { username, userId, loggedIn } = req.session 
 	Product.find({ owner: userId })
+		.populate('comments.note')
+		.populate('comments.owner', 'ref')
 		.then( products => {
 			
 			

@@ -135,6 +135,8 @@ router.put('/:id', (req, res) => {
 router.get('/:id', (req, res) => {
 	const productId = req.params.id
 	Product.findById(productId)
+		.populate('comments.note')
+		.populate('comments.owner', 'ref')
 		.then(product => {
             const {username, loggedIn, userId} = req.session
 			res.render('products/show', { product, username, loggedIn, userId })

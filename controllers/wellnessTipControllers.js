@@ -43,6 +43,7 @@ router.get('/seed', (req, res) => {
 // index ALL
 router.get('/', (req, res) => {
 	WellnessTip.find({})
+
 		.then(wellnessTips => {
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
@@ -105,7 +106,6 @@ router.get('/:id/edit', (req, res) => {
 // update route
 router.put('/:id', (req, res) => {
 	const wellnessTipId = req.params.id
-	req.body.ready = req.body.ready === 'on' ? true : false
 
 	WellnessTip.findByIdAndUpdate(wellnessTipId, req.body, { new: true })
 		.then(wellnessTip => {
@@ -120,6 +120,8 @@ router.put('/:id', (req, res) => {
 router.get('/:id', (req, res) => {
 	const wellnessTipId = req.params.id
 	WellnessTip.findById(wellnessTipId)
+		.populate('comments.note')
+		.populate('comments.owner', 'ref')
 		.then(wellnessTip => {
             const {username, loggedIn, userId} = req.session
 			res.render('wellnessTips/show', { wellnessTip, username, loggedIn, userId })

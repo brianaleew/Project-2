@@ -14,8 +14,10 @@
             Description: {{ wellnessTip.description }}
           </p>
           <p>
-            Owner: {{ wellnessTip.owner }}
-            Comment: {{ wellnessTip.comments }}</p>
+            Owner: {{ wellnessTip.owner.username }}
+            {% for comments in wellnessTip.comments %}
+              Comment: {{ comments.note }}</p>
+          {% endfor %}
           <p class="card-text">
             Sources:
             <a href="{{ wellnessTip.source }}">{{ wellnessTip.source }}

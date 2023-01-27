@@ -106,11 +106,15 @@
     <h4 style="margin: 5px 0 15px 550px; text-align:left; margin-bottom: 0" >Comments
       </h4>
     <div class="item-comments">
-      <h5>
-        {{ comment.owner.username }} _____ commented :
-      </h5>
-      <h6>
-        The comment content:{{ comment.note }}</h6>
+      {% for comments in wellnessTip.comments %}
+        
+       {{ wellnessTip.owner.username }} says :
+        <p> "{{ comments.note }}"</p>
+        
+        {% endfor %}
+        
+     
+      
     </div>
 
     {% if loggedIn %}

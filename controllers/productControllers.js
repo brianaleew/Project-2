@@ -97,7 +97,7 @@ router.post('/', (req, res) => {
 	Product.create(req.body)
 		.then(product => {
 			console.log('this was returned from create', product)
-			res.redirect('/products')
+			res.redirect('/collection/mine')
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)

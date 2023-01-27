@@ -94,6 +94,9 @@
       <h4>{{ wellnessTip.title }}</h4>
       <h4>{{ wellnessTip.goodFor }}</h4>
       <h5>{{ wellnessTip.description }}</h5>
+      <a href="{{ wellnessTip.source }}" style="margin-right: 40px;"  class="btn btn-info view-btn">
+        View Source 
+      </a>
       <a href="/wellnessTips/{{ wellnessTip.id }}" class="btn btn-info view-btn">
         View Tip {{ wellnessTip.title }}
       </a>
@@ -161,17 +164,25 @@
       <div class="item-img">
         <img src="{{ product.productImg }}" alt="product img">
       </div>
-      <h4>{{ product.brand }}</h4>
-      <h4>{{ product.name }}</h4>
-      <h5>Rating:{{ product.personalRating }}</h5>
+      <span style="text-decoration: underline;">
+        <h4>{{ product.brand }}</h4>
+        <h4>{{ product.name }}</h4>
+        </span>
+        <h5>Rating:{{ product.personalRating }}</h5>
+      
       <h5>{{ product.description }}</h5>
       <h5>
         Skin Types: {{ product.skinType }}</h5>
       <h5>
         Good For: {{ product.goodFor }}</h5>
-      <a href="/products/{{ product.id }}" class="btn btn-info view-btn">
-        View Item {{ product.title }}
-      </a>
+      <span style="margin-left: 90px;">
+        <a href="/products/{{ product.id }}" class="btn btn-info view-btn">
+          View Item {{ product.title }}
+        </a>
+        <a href="{{ product.productLink }}" style="margin-left: 60px;" class="btn btn-info view-btn">
+          Buy Item {{ product.title }}
+        </a>
+      </span>
 
 
     </div>
@@ -206,7 +217,7 @@
         </form>
 
       {% else %}
-        <div class="col-md-6">
+        <div class="col-md-6" style="margin: 5px 0 15px 550px; text-align: left;">
           <small>If you'd like to leave a comment, please log in...</small>
         </div>
       {% endif %}

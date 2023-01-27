@@ -2,7 +2,7 @@
 {% block content %}
 
   <div class="inner-content">
-    <div class="container-sm ">
+    <div style=" margin-bottom: 30px;" class="container-sm ">
       <form action="/products" method="POST">
         <fieldset>
           <legend>Create New product</legend>
@@ -58,6 +58,13 @@
             name="productImg"
             placeholder="Paste your Image Address link here"
             class="form-control">
+          <label class="form-label">
+            Product Link</label>
+          <input
+            type="text"
+            name="productLink"
+            placeholder="Paste the link to your product here so users can buy"
+            class="form-control">
 
         </fieldset>
         <input
@@ -65,6 +72,13 @@
           value="Share New product"
           class="btn btn-success">
       </form>
+    </div>
+    <div>
+      <h4 style="position:relative; top: 120px;">For inspiration check out the Wellness Feed!</h4>
+      <img
+        style="position:relative; top: 120px;"
+        src="https://i.pinimg.com/736x/8d/6d/d5/8d6dd51386941c5d1a1014fb8205e14d.jpg"
+        alt="">
     </div>
 
   </div>

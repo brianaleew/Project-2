@@ -24,7 +24,7 @@ router.get('/feed', (req, res) => {
 	const { username, loggedIn } = req.session 
 	Product.find({})
 		.populate('comments.note')
-		.populate('comments.owner')
+		.populate('owner')
 		.then( products => {
 			// allProducts = products
 			// console.log('This is ALL PRODUCTS:', allProducts)
@@ -32,8 +32,8 @@ router.get('/feed', (req, res) => {
 				.populate('comments.note')
 				.populate('owner')
 				.then( wellnessTips => {
-					let allTips = wellnessTips
-					console.log('THESE ARE THE TIPS', allTips)
+					// let allTips = wellnessTips
+					// console.log('THESE ARE THE TIPS', allTips)
 					res.render('collection/feed', { products, wellnessTips, username, loggedIn })
 
 				})

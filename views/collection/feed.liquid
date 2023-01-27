@@ -1,74 +1,224 @@
 {% layout 'layout.liquid' %}
 {% block content %}
-
+  {% comment %}
   <div class="feed-container">
 
-    <h2 class="display-6">Wellness Feed</h2>
+  <h2 class="display-6">Wellness Feed</h2>
 
-    {% for wellnessTip in wellnessTips %}
-      <div class="card" style="width: 18rem;">
-        <h5 class="card-header">{{ wellnessTip.title }}</h5>
-        <h5 class="card-header">Good For: {{ wellnessTip.goodFor }}</h5>
-        <div class="card-body">
-          <p class="card-text">
-            Description: {{ wellnessTip.description }}
-          </p>
-          <p>
-            Owner: {{ wellnessTip.owner.username }}
-            {% for comments in wellnessTip.comments %}
-              Comment: {{ comments.note }}</p>
-          {% endfor %}
-          <p class="card-text">
-            Sources:
-            <a href="{{ wellnessTip.source }}">{{ wellnessTip.source }}
-            </a>
-          </p>
-          <a href="/wellnessTips/{{ wellnessTip.id }}" class="btn btn-info">
-            View {{ wellnessTip.title }}
-          </a>
+  {% for wellnessTip in wellnessTips %}
+  <div class="card" style="width: 18rem;">
+  <h5 class="card-header">{{ wellnessTip.title }}</h5>
+  <h5 class="card-header">Good For: {{ wellnessTip.goodFor }}</h5>
+  <div class="card-body">
+  <p class="card-text">
+  Description: {{ wellnessTip.description }}
+  </p>
+  <p>
+  Owner: {{ wellnessTip.owner.username }}
+  {% for comments in wellnessTip.comments %}
+  Comment: {{ comments.note }}</p>
+  {% endfor %}
+  <p class="card-text">
+  Sources:
+  <a href="{{ wellnessTip.source }}">{{ wellnessTip.source }}
+  </a>
+  </p>
+  <a href="/wellnessTips/{{ wellnessTip.id }}" class="btn btn-info">
+  View {{ wellnessTip.title }}
+  </a>
 
-
-
-        </div>
-      </div>
-    {% endfor %}
-
-
-
-    <h2 class="display-6">All products</h2>
-
-    {% for product in products %}
-      <div class="card" style="width: 18rem;">
-        <h5 class="card-header">{{ product.brand }}</h5>
-        <h5 class="card-header">{{ product.name }}</h5>
-        <div class="card-body">
-          <h5 class="card-title">
-            About {{ product.name }}:
-          </h5>
-          <h5 class="card-title">
-            Rating:{{ product.personalRating }}
-          </h5>
-          <p class="card-text">
-            Good For: {{ product.goodFor }}
-          </p>
-          <p class="card-text">
-            Skin Types: {{ product.skinType }}
-          </p>
-          <p class="card-text">
-            Time Used: {{ product.timeUsed }}
-          </p>
-          <p class="card-text">
-            Description: {{ product.description }}
-          </p>
-          <a href="/products/{{ product.id }}" class="btn btn-info">
-            View {{ product.title }}
-          </a>
-        </div>
-      </div>
-    {% endfor %}
 
 
   </div>
+  </div>
+  {% endfor %}
+
+
+
+
+
+
+
+  <h2 class="display-6">All products</h2>
+
+  {% for product in products %}
+  <div class="card" style="width: 18rem;">
+  <h5 class="card-header">{{ product.brand }}</h5>
+  <h5 class="card-header">{{ product.name }}</h5>
+  <div class="card-body">
+  <h5 class="card-title">
+  About {{ product.name }}:
+  </h5>
+  <h5 class="card-title">
+  Rating:{{ product.personalRating }}
+  </h5>
+  <p class="card-text">
+  Good For: {{ product.goodFor }}
+  </p>
+  <p class="card-text">
+  Skin Types: {{ product.skinType }}
+  </p>
+  <p class="card-text">
+  Time Used: {{ product.timeUsed }}
+  </p>
+  <p class="card-text">
+  Description: {{ product.description }}
+  </p>
+  <a href="/products/{{ product.id }}" class="btn btn-info">
+  View {{ product.title }}
+  </a>
+  </div>
+  </div>
+  {% endfor %}
+
+
+  </div>
+  {% endcomment %}
+  
+  <div class="feed-container">
+    <h1 style="font-family: lobster, cursive; font-size: 70px;">Wellness Feed</h1>
+  {% for wellnessTip in wellnessTips %}
+    <div class="item-post">
+      {% if starterWellnessTips %}
+        <h3 style="text-align: center;">
+          The powers that be have shared a product!
+        </h3>
+
+      {% else %}
+        <h3 style="text-align: center;">
+          {{ wellnessTip.owner.username }} has shared a Wellness Tip!
+        </h3>
+
+      {% endif %}
+      <div class="imageGoesHere"></div>
+      <h4>{{ wellnessTip.title }}</h4>
+      <h4>{{ wellnessTip.goodFor }}</h4>
+      <h5>{{ wellnessTip.description }}</h5>
+      <a href="/wellnessTips/{{ wellnessTip.id }}" class="btn btn-info view-btn">
+        View Tip {{ wellnessTip.title }}
+      </a>
+
+
+    </div>
+    <h4 style="margin: 5px 0 15px 550px; text-align:left; margin-bottom: 0" >Comments
+      </h4>
+    <div class="item-comments">
+      <h5>
+        {{ comment.owner.username }} _____ commented :
+      </h5>
+      <h6>
+        The comment content:{{ comment.note }}</h6>
+    </div>
+
+    {% if loggedIn %}
+    <form style="margin: 5px 0 15px 550px; text-align: left;" action="/comments/{{ wellnessTip.id }}" method="POST">
+      <fieldset>
+        <legend>Add Comment</legend>
+        <label class="form-label">comment:
+        </label>
+        <input
+          type="text"
+          name="note"
+          class="form-control mb-1">
+      </fieldset>
+      <input
+        type="submit"
+        class="btn btn-success"
+        value="add comment">
+    </form>
+
+  {% else %}
+    <div class="col-md-6" style="margin: 5px 0 15px 550px; text-align: left;">
+      <small>If you'd like to leave a comment, please log in...</small>
+    </div>
+  {% endif %}
+  {% if comments.owner == userId %}
+    <form action="/comments/delete/{{ wellnessTip.id }}/{{ comment.id }}?_method=DELETE" method="POST">
+      <input
+        class="btn btn-danger"
+        type="submit"
+        value="x">
+    </form>
+  {% endif %}
+
+  {% endfor %}
+
+
+
+  {% for product in products %}
+    <div class="item-post">
+      {% if starterProducts %}
+        <h3 style="text-align: center;">
+          The powers that be have shared a product!
+        </h3>
+
+      {% else %}
+        <h3 style="text-align: center;">
+          {{ product.owner.username }} has shared a product!
+        </h3>
+
+      {% endif %}
+      <div class="imageGoesHere"></div>
+      <h4>{{ product.brand }}</h4>
+      <h4>{{ product.name }}</h4>
+      <h5>Rating:{{ product.personalRating }}</h5>
+      <h5>{{ product.description }}</h5>
+      <h5>
+        Skin Types: {{ product.skinType }}</h5>
+      <h5>
+        Good For: {{ product.goodFor }}</h5>
+      <a href="/products/{{ product.id }}" class="btn btn-info view-btn">
+        View Item {{ product.title }}
+      </a>
+
+
+    </div>
+    <div class="item-comments">
+      <h4>Comments
+      </h4>
+      
+      <h5>
+        {{ comment.owner.username }} _____ commented :
+      </h5>
+      <h6>
+        The comment content:{{ comment.note }}</h6>
+      
+
+    </div>
+    {% if loggedIn %}
+
+        <form style="margin: 5px 0 15px 550px; text-align: left;" action="/comments/{{ product.id }}" method="POST">
+          <fieldset>
+            <legend>Add Comment</legend>
+            <label class="form-label">comment:
+            </label>
+            <input
+              type="text"
+              name="note"
+              class="form-control mb-1">
+          </fieldset>
+          <input
+            type="submit"
+            class="btn btn-success"
+            value="add comment">
+        </form>
+
+      {% else %}
+        <div class="col-md-6">
+          <small>If you'd like to leave a comment, please log in...</small>
+        </div>
+      {% endif %}
+      {% if comm.owner == userId %}
+        <form action="/comments/delete/{{ product.id }}/{{ comment.id }}?_method=DELETE" method="POST">
+          <input
+            class="btn btn-danger"
+            type="submit"
+            value="X">
+        </form>
+      {% endif %}
+
+
+  {% endfor %}
 
 
 

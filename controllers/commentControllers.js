@@ -62,7 +62,32 @@ router.post('/:wellnessTipId', (req, res) => {
 })
 
 //Comment on products
+router.post('/:productId', (req, res) => {
+    const productId = req.params.productId
+    console.log('THIS IS THE SESSION:', req.session)
+    if(req.session.loggedIn) {
+        req.body.owner = req.session.userId
+        
+        const theComment = req.body
+        console.log(`THIS IS THE PRODUCT ${productId}`)
+        Product.findById(productId)
+        .then(product => {
+            product.comments.push(theComment)
+            console.log('Product', product)
+            return product.save()
+        })
+        .then(product => {
+            res.redirect(`/products/${productId}`)
+        })
+        .catch(err => {
+            console.log(err)
+            res.redirect(`/error?error=${err}`)
+        })
 
+    } else {
+        res.redirect(`/error?error=You%20Are%20not%20allowed%20to%20comment%20on%20this%20item`)
+    }
+})
 
 
 //Delete 

@@ -100,6 +100,36 @@ nav, li {
     justify-content: right;
     
 }
+.item-post {
+    width: 500px;
+    height: 100%;
+    background: rgb(198,174,238);
+    background: linear-gradient(0deg, rgba(198,174,238,1) 0%, rgba(246,246,246,1) 100%);
+    border-radius: 10px;
+    border: solid 2px #b992e4;
+    margin: 20px 0 10px 520px;
+    padding: 20px;
+    text-align: left;
+}
+.item-comments {
+    
+    margin: 5px 0 15px 550px;
+    text-align: left;
+    background: rgb(198,174,238);
+    border-radius: 20px;
+    border: solid 2px #770aed;
+    padding: 10px;
+    
+
+}
+.view-btn {
+    text-align: right;
+}
+
+
+
+
+
 
 /* Show Page Styling */
 .show-item {

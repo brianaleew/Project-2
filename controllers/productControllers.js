@@ -120,11 +120,17 @@ router.get('/:id/edit', (req, res) => {
 // update route
 router.put('/:id', (req, res) => {
 	const productId = req.params.id
-	req.body.ready = req.body.ready === 'on' ? true : false
-
-	Product.findByIdAndUpdate(productId, req.body, { new: true })
+	Product.findById(productId)
 		.then(product => {
+			if (product.owner == req.session.userId) {
+				return product.updateOne(req.body)
+			} else {
+				res.redirect(`/error?error=You%20Are%20not%20allowed%20to%20edit%20this%20item`)
+			}
 			res.redirect(`/products/${product.id}`)
+		}) 
+		.then(() => {
+			res.redirect(`/collection/mine`)
 		})
 		.catch((error) => {
 			res.redirect(`/error?error=${error}`)

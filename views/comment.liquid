@@ -1,3 +1,16 @@
 {% block content %}
-
+<div class="card mb-4 shadow">
+        <div class="card-body">
+            {% for comments in wellnesstip.comments %}
+            <p>{{ comments.note }}</p>
+            <div class="d-flex justify-content-between">
+                <small>author: {{ comments.owner.username }}</small>
+                {% if comments.author == userId %}
+                    <form action="/comments/delete/{{ product.id }}/{{ comments.id }}?_method=DELETE" method="POST">
+                        <input class="btn btn-danger" type="submit" value="X">
+                    </form>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock %}

@@ -34,7 +34,7 @@ router.use((req, res, next) => {
 // Routes
 
 //Post -> allowing loggedIn users to create comments under WELLNESSTIPS
-router.post('/:wellnessTipId', (req, res) => {
+router.post('/wellnessTips/:wellnessTipId', (req, res) => {
     const wellnessTipId = req.params.wellnessTipId
     console.log('THIS IS THE SESSION:', req.session)
     if(req.session.loggedIn) {
@@ -63,7 +63,7 @@ router.post('/:wellnessTipId', (req, res) => {
 
 //Post -> allowing loggedIn users to create comments under PRODUCTS
 
-router.post('/:productId', (req, res) => {
+router.post('/products/:productId', (req, res) => {
     const productId = req.params.productId
     console.log('THIS IS THE SESSION:', req.session)
     if(req.session.loggedIn) {

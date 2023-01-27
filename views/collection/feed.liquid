@@ -194,11 +194,12 @@
       <h4>Comments
       </h4>
       
-      <h5>
-        {{ comment.owner.username }} _____ commented :
-      </h5>
-      <h6>
-        The comment content:{{ comment.note }}</h6>
+      {% for comments in product.comments %}
+        
+        {{ product.owner.username }} says :
+         <p> "{{ comments.note }}"</p>
+         
+         {% endfor %}
       
 
     </div>

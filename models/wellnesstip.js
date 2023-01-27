@@ -26,6 +26,7 @@ const wellnessTipSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
+    tipImg: String,
     comments: [commentSchema]
 }, { timestamps: true }
 )

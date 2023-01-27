@@ -35,6 +35,8 @@ const productSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
+    productImg: String,
+    productLink: String,
     comments: [commentSchema]
 }, { timestamps: true }
 )

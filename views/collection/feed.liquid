@@ -158,7 +158,9 @@
         </h3>
 
       {% endif %}
-      <div class="imageGoesHere"></div>
+      <div class="item-img">
+        <img src="{{ product.productImg }}" alt="product img">
+      </div>
       <h4>{{ product.brand }}</h4>
       <h4>{{ product.name }}</h4>
       <h5>Rating:{{ product.personalRating }}</h5>

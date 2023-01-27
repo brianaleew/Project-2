@@ -110,6 +110,7 @@ nav, li {
     margin: 20px 0 10px 520px;
     padding: 20px;
     text-align: left;
+    padding: 10px;
 }
 .item-comments {
     
@@ -124,6 +125,10 @@ nav, li {
 }
 .view-btn {
     text-align: right;
+}
+.item-img {
+    float: left;
+    margin-right: 15px;
 }
 
 

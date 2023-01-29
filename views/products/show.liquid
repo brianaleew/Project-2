@@ -7,10 +7,19 @@
           style="width: 280px;"
           src="{{ product.productImg }}"
           alt="product img">
+          {% if product.owner == userId %}
+            <div class="edit-delete">
+              <a href="/products/{{ product.id }}/edit" class="btn btn-primary view-btn" style="">Edit Product Info</a>
+              <form action="/products/{{ product.id }}?_method=DELETE" method="POST">
+                  <input type="submit" value="Delete" class="btn btn-danger">
+              </form>
+            </div>
+          {% endif %}
       </div>
+
       <div style="padding: 20px 50px 40px 0;" class="column">
 
-        <h2>
+        <h2 style="font-family: lobster, cursive;">
           {{ product.brand }}
         </h2>
         <h2>
@@ -23,6 +32,54 @@
           <h6>Time Used: {{ product.timeUsed }}</h6>
           <h6>Description: {{ product.description }}</h6>
         </span>
+
+
+        <div class="show-comments">
+          <h4>Comments
+          </h4>
+      
+          {% for comments in product.comments %}
+        
+          <p style="font-style: italic; margin-bottom: 0;">{{ comments.owner }} says:</p>
+          <p>"{{ comments.note }}"</p>
+         
+          {% endfor %}
+      
+
+        </div>
+        {% if loggedIn %}
+
+        <form style="margin: 5px 0 15px 0; text-align: left;" action="/comments/products/{{ product.id }}" method="POST">
+          <fieldset>
+            <legend>Add Comment</legend>
+            <label class="form-label">comment:
+            </label>
+            <input
+              type="text"
+              name="note"
+              class="form-control mb-1">
+          </fieldset>
+          <input
+            type="submit"
+            class="btn btn-success"
+            value="add comment">
+        </form>
+
+        {% else %}
+        <div class="col-md-6" style="margin: 5px 0 15px 550px; text-align: left;">
+          <small>If you'd like to leave a comment, please log in...</small>
+        </div>
+        {% endif %}
+        {% if comm.owner == userId %}
+        <form action="/comments/delete/{{ product.id }}/{{ comment.id }}?_method=DELETE" method="POST">
+          <input
+            class="btn btn-danger"
+            type="submit"
+            value="X">
+        </form>
+        {% endif %}
+        
+        {% comment  %}  
         <form action="/comments/{{ product.id }}" method="POST">
           <fieldset>
             <legend>Add Comment</legend>
@@ -52,7 +109,8 @@
           </div>
 
         </div>
-      {% endif %}
+        {% endif %}
+        {% endcomment %}
     </article>
   </div>
 {% endblock %}

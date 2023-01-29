@@ -134,14 +134,29 @@ router.get('/:id', (req, res) => {
 // delete route
 router.delete('/:id', (req, res) => {
 	const wellnessTipId = req.params.id
-	WellnessTip.findByIdAndRemove(wellnessTipId)
+	WellnessTip.findById(wellnessTipId)
 		.then(wellnessTip => {
-			res.redirect('/wellnessTips')
-		})
-		.catch(error => {
-			res.redirect(`/error?error=${error}`)
-		})
+			if (wellnessTip.owner == req.session.userId) {
+                // send success message
+                // res.sendStatus(204)
+                // delete the fruit
+                return wellnessTip.deleteOne()
+            } else {
+                // otherwise send a 401 unauthorized status
+                // res.sendStatus(401)
+                res.redirect(`/error?error=You%20Are%20not%20allowed%20to%20delete%20this%20wellnessTip`)
+            }
+        })
+        .then(() => {
+            res.redirect('/wellnessTips/mine')
+        })
+        .catch(err => {
+            console.log(err)
+            // res.status(400).json(err)
+            res.redirect(`/error?error=${err}`)
+        })
 })
+
 
 // Export the Router
 module.exports = router

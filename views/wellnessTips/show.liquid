@@ -1,14 +1,51 @@
 {% layout 'layout.liquid' %}
 {% block content %}
-  <div class="container-md">
-    <article class="show-item">
-      <h2>
-        {{ wellnessTip.title }}
+<div class="container-md">
+  <article class="show-item inner-content">
+    <div style="align-self:center;  " class="item-img">
+      <img
+        style="width: 280px;"
+        src="{{ wellnessTip.wellnessTipImg }}"
+        alt="wellnessTip img">
+        {% if wellnessTip.owner == userId %}
+            <div class="edit-delete">
+              <a href="/wellnessTips/{{ wellnessTip.id }}/edit" class="btn btn-primary view-btn" style="">Edit Wellness Tip Info</a>
+              <form action="/wellnessTips/{{ wellnessTip.id }}?_method=DELETE" method="POST">
+                  <input type="submit" value="Delete" class="btn btn-danger">
+              </form>
+            </div>
+          {% endif %}
+    </div>
 
+    <div style="padding: 20px 50px 40px 0;" class="column">
+
+      <h2 style="font-family: lobster, cursive;">
+        {{ wellnessTip.title }}
       </h2>
-      <h3>Good For: {{ wellnessTip.goodFor }}</h3>
-      <h6>Description: {{ wellnessTip.description }}</h6>
-      <form action="/comments/{{ wellnessTip.id }}" method="POST">
+      
+      <h3>Rating: {{ wellnessTip.p }}</h3>
+      <span style="text-align: left;">
+        <h4>Good For: {{ wellnessTip.goodFor }}</h4>
+       
+        <h4>Description: {{ wellnessTip.description }}</h4>
+      </span>
+
+      <div class="show-comments">
+        <h4>Comments
+        </h4>
+    
+        {% for comments in wellnessTip.comments %}
+      
+        <p style="font-style: italic; margin-bottom: 0;">{{ comments.owner }} says:</p>
+        <p>"{{ comments.note }}"</p>
+       
+        {% endfor %}
+    
+
+      </div>
+      {% if loggedIn %}
+
+      <form style="margin: 5px 0 15px 0; text-align: left;" action="/comments/products/{{ product.id }}" method="POST">
         <fieldset>
           <legend>Add Comment</legend>
           <label class="form-label">comment:
@@ -24,18 +61,21 @@
           value="add comment">
       </form>
 
-      {% if wellnessTip.owner == userId %}
-        <div class="btn-group">
-
-          <a href="/wellnessTips/{{ wellnessTip.id }}/edit" class="btn btn-primary">Edit</a>
-          <form action="/wellnessTips/{{ wellnessTip.id }}?_method=DELETE" method="POST">
-            <input
-              type="submit"
-              value="Delete"
-              class="btn btn-danger">
-          </form>
-        </div>
+      {% else %}
+      <div class="col-md-6" style="margin: 5px 0 15px 550px; text-align: left;">
+        <small>If you'd like to leave a comment, please log in...</small>
+      </div>
       {% endif %}
-    </article>
-  </div>
+      {% if comm.owner == userId %}
+      <form action="/comments/delete/{{ product.id }}/{{ comment.id }}?_method=DELETE" method="POST">
+        <input
+          class="btn btn-danger"
+          type="submit"
+          value="X">
+      </form>
+      {% endif %}
+      
+    
+  </article>
+</div>
 {% endblock %}

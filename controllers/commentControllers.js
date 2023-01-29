@@ -43,6 +43,8 @@ router.post('/wellnessTips/:wellnessTipId', (req, res) => {
         const theComment = req.body
         console.log(`THIS IS THE WELLNESS TIP ${wellnessTipId}`)
         WellnessTip.findById(wellnessTipId)
+        .populate('comments.note')
+		.populate('comments.owner', 'ref')
         .then(wellnessTip => {
             wellnessTip.comments.push(theComment)
             console.log('WellnessTip', wellnessTip)
@@ -72,6 +74,8 @@ router.post('/products/:productId', (req, res) => {
         const theComment = req.body
         console.log(`THIS IS THE PRODUCT ${productId}`)
         Product.findById(productId)
+        .populate('comments.note')
+		.populate('comments.owner', 'ref')
         .then(product => {
             product.comments.push(theComment)
             console.log('Product', product)

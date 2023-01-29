@@ -118,7 +118,7 @@
     </div>
 
     {% if loggedIn %}
-    <form style="margin: 5px 0 15px 550px; text-align: left;" action="/comments/{{ wellnessTip.id }}" method="POST">
+    <form style="margin: 5px 0 15px 550px; text-align: left;" action="/comments/wellnessTips/{{ wellnessTip.id }}" method="POST">
       <fieldset>
         <legend>Add Comment</legend>
         <label class="form-label">comment:
@@ -140,7 +140,7 @@
     </div>
   {% endif %}
   {% if comments.owner == userId %}
-    <form action="/comments/delete/{{ wellnessTip.id }}/{{ comment.id }}?_method=DELETE" method="POST">
+    <form action="/" method="POST">
       <input
         class="btn btn-danger"
         type="submit"
@@ -205,7 +205,7 @@
     </div>
     {% if loggedIn %}
 
-        <form style="margin: 5px 0 15px 550px; text-align: left;" action="/comments/{{ product.id }}" method="POST">
+        <form style="margin: 5px 0 15px 550px; text-align: left;" action="/comments/products/{{ product.id }}" method="POST">
           <fieldset>
             <legend>Add Comment</legend>
             <label class="form-label">comment:

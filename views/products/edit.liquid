@@ -1,39 +1,73 @@
 {% layout 'layout.liquid' %}
 {% block content %}
   <div class="container-sm">
-    <form action="/products?_method=PUT" method="POST">
+    <form action="/products/:productId?_method=PUT" method="POST">
       <fieldset>
         <legend>Create New product</legend>
-        <label class="form-label">Title:
+        <label class="form-label">Product Name:
         </label>
         <input
           type="text"
-          name="title"
-          placeholder="{{ product.title }}"
-          value="{{ product.title }}"
+          name="name"
+          placeholder="enter product name"
           class="form-control">
-        <label class="form-label">Body:</label>
+        <label class="form-label">Brand:
+        </label>
         <input
           type="text"
-          name="body"
-          placeholder="{{ product.body }}"
-          value="{{ product.body }}"
+          name="brand"
+          placeholder="Enter brand name"
           class="form-control">
-        <label class="form-label">Amount:</label>
+        <label class="form-label">Personal Rating:
+        </label>
         <input
           type="number"
-          name="amount"
-          value="{{ product.amount }}"
+          name="personalRating"
+          placeholder="1-10"
           class="form-control">
-        <label class="form-label">Ready:</label>
+        <label class="form-label">Description:</label>
         <input
-          type="checkbox"
-          name="ready"
-          class="form-check-input"
-          {% if product.ready %}
-          checked
-          {% endif %}>
+          type="text"
+          name="description"
+          placeholder="Tell us about the product!"
+          class="form-control">
+        <label class="form-label">Good For:</label>
+        <input
+          type="text"
+          name="goodFor"
+          placeholder="What does your product help with?"
+          class="form-control">
+        <label class="form-label">Skin Types:</label>
+        <input
+          type="text"
+          name="skinType"
+          placeholder="Which skin type is this product for?(can be for All skin types!)"
+          class="form-control">
+        <label class="form-label">Time Used:</label>
+        <input
+          type="text"
+          name="timeUsed"
+          placeholder="How long have you used this product?"
+          class="form-control">
+        <label class="form-label">
+          Product Image</label>
+        <input
+          type="text"
+          name="productImg"
+          placeholder="Paste your Image Address link here"
+          class="form-control">
+        <label class="form-label">
+          Product Link</label>
+        <input
+          type="text"
+          name="productLink"
+          placeholder="Paste the link to your product here so users can buy"
+          class="form-control">
+
       </fieldset>
+
+    </form>
+    <form action="/products/:productId?_method=PUT" method="POST">
       <input
         type="submit"
         value="Edit product"

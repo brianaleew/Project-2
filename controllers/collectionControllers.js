@@ -65,8 +65,6 @@ router.get('/mine', (req, res) => {
 	let userProducts
 	const { username, userId, loggedIn } = req.session 
 	Product.find({ owner: userId })
-		.populate('comments.note')
-		.populate('comments.owner', 'ref')
 		.then( products => {
 			
 			

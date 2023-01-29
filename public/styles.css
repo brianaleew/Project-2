@@ -15,7 +15,7 @@ background: radial-gradient(circle, rgba(198,174,238,1) 0%, rgba(54,40,105,1) 10
 /* Main Layout (layout.liquid) */
 .content-container {
     background: rgb(198,174,238);
-background: linear-gradient(0deg, rgba(198,174,238,1) 0%, rgba(246,246,246,1) 100%);
+    background: linear-gradient(0deg, rgba(198,174,238,1) 0%, rgba(246,246,246,1) 100%);
     width: 1200px;
     height: 100%;
     margin: 50px auto;
@@ -81,8 +81,28 @@ nav, li {
     
 }
 
-/* Form Page Styling */
+/* Sign up Page Styling */
+.sign-up-form {
+    width: 650px;
+    height: 300px;
+    background: rgb(198,174,238);
+    background: linear-gradient(0deg, rgba(198,174,238,1) 0%, rgba(246,246,246,1) 100%);
+    border-radius: 15px;
+    margin-top: 90px;
+    margin-left: 40px;
+    padding: 20px 10px;
+}
+.form-container {
+    background-image: url("https://i.pinimg.com/736x/0a/e9/d1/0ae9d1e2d48e00d5fe72813c43cd5886.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    display: flex;
+    justify-content: flex-start;
+    height: 1000px;
+    width: 1000px;
+    margin: 50px 140px ;
 
+}
 
 
 /* My Collection Styling */
@@ -172,8 +192,7 @@ I need a route that displays all the users wellness tips AND products (My Collec
 
 
  ISSUE:
- when creating new item i get this error:
- ValidationError: personalRating: Path `personalRating` is required., brand: Path `brand` is required., name: Path `name` is required.
+
  
  to do list: 
 

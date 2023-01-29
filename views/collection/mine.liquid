@@ -1,78 +1,64 @@
 {% layout 'layout.liquid' %}
 {% block content %}
 
-  
-  <div class="my-collection">
-    <h1 style="text-decoration: underline;">{{username}}'s Collection</h1> 
-    <h2>My Wellness Tips
-    </h2>
-     
-  <div class="row">
-  {% for wellnessTip in wellnessTips %}
-  <div class="card" style="width: 18rem;">
-  <h5 class="card-header">{{ wellnessTip.title }}</h5>
-  <h5 class="card-header">Good For: {{ wellnessTip.goodFor }}</h5>
-  <div class="card-body">
 
-  <p class="card-text">
-  Description: {{ wellnessTip.description }}
-  </p>
-  <p class="card-text">
-  Sources: {{ wellnessTip.source }}
-  </p>
-  <a href="/wellnessTips/{{ wellnessTip.id }}" class="btn btn-info">
-  View {{ wellnessTip.title }}
-  </a>
-  </div>
-  </div>
-  {% endfor %}
-  </div>
-  </div>
+<h1 style="font-family: lobster, cursive; font-size: 50px;"> {{ username }}'s Collection</h1>
+<a href="/wellnessTips/new" style="margin-right: 40px;"  class="btn btn-info view-btn">
+        Create New Wellness Tip </a>
+<a href="/products/new" style="margin-right: 40px;"  class="btn btn-info new-btn">
+      Create New Product </a>
 
 
-    <h2>My Products</h2>
+<div class="collection-container">
 
-    <div>
-
-      <div class="row">
-        {% for product in products %}
-          <div class="card" style="width: 18rem;">
-            <h5 class="card-header">{{ product.brand }}</h5>
-            <h5 class="card-header">{{ product.name }}</h5>
-
-            <div class="card-body">
-              <h5 class="card-title">
-                About {{ product.name }}:
-              </h5>
-              <h5 class="card-title">
-                Rating:{{ product.personalRating }}
-              </h5>
-              <p class="card-text">
-                Good For: {{ product.goodFor }}
-              </p>
-              <p class="card-text">
-                Skin Types: {{ product.skinType }}
-              </p>
-              <p class="card-text">
-                Time Used: {{ product.timeUsed }}
-              </p>
-              <p class="card-text">
-                Description: {{ product.description }}
-              </p>
-
-              <a href="/products/{{ product.id }}" class="btn btn-info">
-                View {{ product.title }}
-              </a>
-            </div>
-          </div>
-        {% endfor %}
+  <div>
+    <h1 style="margin: 20px;">  My Wellness Tips </h1>
+    {% for wellnessTip in wellnessTips %}
+      <div style= "height:fit-content; width:auto" class="collection-card">
+        <h3 style="font-family: lobster, cursive; text-align:center;"> {{ wellnessTip.title }}</h3>
+        <h4>Good For: {{ wellnessTip.goodFor }}</h4>
+        <h5> {{ wellnessTip.description }}</h5>
+        <a href="{{ wellnessTip.source }}" style="margin-right: 40px;"  class="btn btn-info view-btn">
+          View Source 
+        </a>
+        <a href="/wellnessTips/{{ wellnessTip.id }}" class="btn btn-info view-btn">
+        View Tip 
+      </a>
       </div>
-    </div>
-
-
-
+    {% endfor %}
   </div>
 
+<div>
+  <h1 style="margin: 20px;"> My Products </h1>
+  <div class="collection-card">
+    
+    {% for product in products %}
+      
+        <h3 style="font-family: lobster, cursive; text-align:center" >{{ product.brand }}</h3>
+        <h3 style="text-align:center" >{{ product.name }}</h3>
+        
+          
+          <h4 style="text-align:center; margin-bottom: 10px;" class="card-title">
+            Rating:{{ product.personalRating }}
+          </h4>
+          <p class="card-text">
+            Good For: {{ product.goodFor }}
+          </p>
+          <p class="card-text">
+            Skin Types: {{ product.skinType }}
+          </p>
+          <p class="card-text">
+            Time Used: {{ product.timeUsed }}
+          </p>
+          <p class="card-text">
+            Description: {{ product.description }}
+          </p>
+          <a href="/products/{{ product.id }}" class="btn btn-info view-btn" style="margin-left: 80px;">
+          View Item 
+        </a>
+      {% endfor %}
+  </div>
 
+</div>
 
 {% endblock %}

@@ -106,7 +106,30 @@ nav, li {
 
 
 /* My Collection Styling */
+.collection-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    margin: 20px 10px;
+}
 
+.collection-card {
+    width: 300px;
+    height: 500px;
+    background-color: white;
+    border: 3px solid #770aed;
+    border-radius: 15px;
+    text-align: left;
+    padding: 10px;
+    margin: 15px 95px;
+
+}
+
+.new-btn {
+    
+    background-color: #770aed;
+    color: #d3b8ef;
+    border: 2px solid #770aed;
+}
 
 
 /* Wellness Feed Styling */

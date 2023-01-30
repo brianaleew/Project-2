@@ -32,12 +32,22 @@
   <h4 style="margin: 5px 0 15px 550px; text-align:left; margin-bottom: 0" >Comments
       </h4>
     <div class="item-comments">
+     
       {% for comments in wellnessTip.comments %}
+        
         <p style="font-style: italic; margin-bottom: 0; color:#430289">{{ comments.owner.username }} says:</p>
-       
         <p> "{{ comments.note }}"</p>
+        {% if comments.owner.id == userId %}
+      <form action="/delete/wellnessTips/:wellnessTipId/:commentId?_method=DELETE" method="POST">
+        <input
+          class="btn btn-danger"
+          type="submit"
+          value="x">
+      </form>
+      {% endif %}
        
         {% endfor %}
+       
     </div>
 
     {% if loggedIn %}
@@ -62,14 +72,7 @@
       <small>If you'd like to leave a comment, please log in...</small>
     </div>
   {% endif %}
-  {% if comments.owner == userId %}
-  <form action="/delete/wellnessTips/:wellnessTipId/:commentId?_method=DELETE" method="POST">
-    <input
-      class="btn btn-danger"
-      type="submit"
-      value="x">
-  </form>
-{% endif %}
+  
 
   {% endfor %}
 

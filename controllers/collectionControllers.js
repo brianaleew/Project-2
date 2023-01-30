@@ -21,7 +21,7 @@ const router = express.Router()
 // placed above middleware to make it accessible to all users,not just those with an account
 router.get('/feed', (req, res) => {
 	// let allProducts
-	const { username, loggedIn } = req.session 
+	const { username, loggedIn, userId } = req.session 
 	Product.find({})
 		.populate('comments.note')
 		.populate('comments.owner', 'username')
@@ -34,7 +34,7 @@ router.get('/feed', (req, res) => {
 				.then( wellnessTips => {
 					// let allTips = wellnessTips
 					// console.log('THESE ARE THE TIPS', allTips)
-					res.render('collection/feed', { products, wellnessTips, username, loggedIn })
+					res.render('collection/feed', { products, wellnessTips, username, loggedIn, userId })
 
 				})
 				.catch(error => res.redirect(`/error?error=${error}`))

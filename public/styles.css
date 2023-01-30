@@ -80,6 +80,11 @@ nav, li {
     text-align: left;
     
 }
+.column-b {
+    /* background-image: url("https://img.freepik.com/free-photo/top-view-lavender-concept-spa-products_23-2148295928.jpg?w=740&t=st=1675095355~exp=1675095955~hmac=4f08e2b53efbb7ed36ffcbe4e7ed56d159666b60699b55868ae531b0369eceb2");
+    background-size: cover;
+    height: 1200px; */
+}
 
 /* Sign up Page Styling */
 .sign-up-form {

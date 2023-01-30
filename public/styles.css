@@ -53,15 +53,27 @@ nav, li {
 /* Home page Styling (index.liquid) */
 .welcome {
     font-size: 80px;
+    font-family: lobster, cursive;
+    word-spacing: 2px;
+    margin-top: 120px;
+    margin-left: 15px;
+}
+.sub-text {
+    text-align: center;
+}
+.sidebar {
+    margin-top: 170px;
+    font-size: 20px;
 }
 
-/* .home {
-    width: 800px;
-    height: 100%;
-    background-color: pink;
-    margin: 0 auto;
-} */
 
+.homepg {
+    background-image: url("https://img.freepik.com/free-photo/top-view-lavender-concept-spa-products_23-2148295928.jpg?w=740&t=st=1675095355~exp=1675095955~hmac=4f08e2b53efbb7ed36ffcbe4e7ed56d159666b60699b55868ae531b0369eceb2");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1000px;
+    margin-bottom: 30px;
+}
 .inner-content {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -80,11 +92,7 @@ nav, li {
     text-align: left;
     
 }
-.column-b {
-    /* background-image: url("https://img.freepik.com/free-photo/top-view-lavender-concept-spa-products_23-2148295928.jpg?w=740&t=st=1675095355~exp=1675095955~hmac=4f08e2b53efbb7ed36ffcbe4e7ed56d159666b60699b55868ae531b0369eceb2");
-    background-size: cover;
-    height: 1200px; */
-}
+
 
 /* Sign up Page Styling */
 .sign-up-form {
@@ -110,7 +118,7 @@ nav, li {
 }
 
 
-/* My Collection Styling */
+/* My Collection Page Styling */
 .collection-container {
     display: grid;
     grid-template-columns: 1fr 1fr ;

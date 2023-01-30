@@ -37,8 +37,17 @@
         {% for comments in wellnessTip.comments %}
       
         <p style="font-style: italic; margin-bottom: 0;color:#430289">{{ comments.owner.username }} says:</p>
-        <p>"{{ comments.note }}"</p>
+        <p style="margin-bottom: 0;">"{{ comments.note }}"</p>
        
+        {% if comments.owner.id == userId %}
+        <form  action="/comments/delete/{{ wellnessTip.id }}/{{ comment.id }}?_method=DELETE" method="POST">
+          <input
+            style="margin-bottom: 5px;padding:2px 5px;"
+            class="btn btn-danger view-btn"
+            type="submit"
+            value="x">
+        </form>
+      {% endif %}
         {% endfor %}
     
 

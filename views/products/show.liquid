@@ -7,6 +7,11 @@
           style="width: 280px;"
           src="{{ product.productImg }}"
           alt="product img">
+          <div>
+            <a href="{{ product.productLink }}" class="btn btn-info view-btn">
+            Buy Item {{ product.title }}
+                    </a>
+          </div>
           {% if product.owner == userId %}
             <div class="edit-delete">
               <a href="/products/{{ product.id }}/edit" class="btn btn-primary view-btn" style="">Edit Product Info</a>
@@ -15,6 +20,7 @@
               </form>
             </div>
           {% endif %}
+          
       </div>
 
       <div style="padding: 20px 50px 40px 0;" class="column">

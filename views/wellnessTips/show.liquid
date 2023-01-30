@@ -7,6 +7,11 @@
         style="width: 280px;"
         src="{{ wellnessTip.wellnessTipImg }}"
         alt="wellnessTip img">
+        <div>
+          <a href="{{ wellnessTip.source }}" target="_blank"   style="margin-right: 40px;"  class="btn btn-info view-btn">
+        View Source 
+      </a>
+        </div>
         {% if wellnessTip.owner == userId %}
             <div class="edit-delete">
               <a href="/wellnessTips/{{ wellnessTip.id }}/edit" class="btn btn-primary view-btn" style="">Edit Wellness Tip Info</a>

@@ -21,7 +21,7 @@
       <h4>{{ wellnessTip.title }}</h4>
       <h4>{{ wellnessTip.goodFor }}</h4>
       <h5>{{ wellnessTip.description }}</h5>
-      <a href="{{ wellnessTip.source }}" style="margin-right: 40px;"  class="btn btn-info view-btn">
+      <a href="{{ wellnessTip.source }}" target="_blank"   style="margin-right: 40px;"  class="btn btn-info view-btn">
         View Source 
       </a>
       <a href="/wellnessTips/{{ wellnessTip.id }}" class="btn btn-info view-btn">
@@ -38,7 +38,7 @@
         <p style="font-style: italic; margin-bottom: 0; color:#430289">{{ comments.owner.username }} says:</p>
         <p style="margin-bottom: 2px"> "{{ comments.note }}"</p>
         {% if comments.owner.id == userId %}
-      <form action="/delete/wellnessTips/:wellnessTipId/:commentId?_method=DELETE" method="POST">
+      <form action="/delete/{{ wellnessTip.id }}/{{ comment.id }}?_method=DELETE" method="POST">
         <input
          style="margin-bottom: 5px;padding:2px 5px;"
           class="btn btn-danger view-btn"
@@ -110,7 +110,7 @@
         <a href="/products/{{ product.id }}" class="btn btn-info view-btn">
           View Item {{ product.title }}
         </a>
-        <a href="{{ product.productLink }}" style="margin-left: 60px;" class="btn btn-info view-btn">
+        <a href="{{ product.productLink }}" target="_blank" style="margin-left: 60px;" class="btn btn-info view-btn">
           Buy Item {{ product.title }}
         </a>
       </span>

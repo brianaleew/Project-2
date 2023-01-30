@@ -63,13 +63,13 @@
     </div>
   {% endif %}
   {% if comments.owner == userId %}
-    <form action="/:id" method="POST">
-      <input
-        class="btn btn-danger"
-        type="submit"
-        value="x">
-    </form>
-  {% endif %}
+  <form action="/delete/wellnessTips/:wellnessTipId/:commentId?_method=DELETE" method="POST">
+    <input
+      class="btn btn-danger"
+      type="submit"
+      value="x">
+  </form>
+{% endif %}
 
   {% endfor %}
 

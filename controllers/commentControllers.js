@@ -44,7 +44,7 @@ router.post('/wellnessTips/:wellnessTipId', (req, res) => {
         console.log(`THIS IS THE WELLNESS TIP ${wellnessTipId}`)
         WellnessTip.findById(wellnessTipId)
         .populate('comments.note')
-		.populate('comments.owner', 'ref')
+		.populate('comments.owner', 'username')
         .then(wellnessTip => {
             wellnessTip.comments.push(theComment)
             console.log('WellnessTip', wellnessTip)
@@ -99,7 +99,7 @@ router.post('/products/:productId', (req, res) => {
 
 // DELETE -> `/comments/delete/<WellnessTipId>/<CommentId>`
 // make sure only the author of the comment can delete the comment
-router.delete('/delete/:wellnessTipId/:commId', (req, res) => {
+router.delete('/delete/:wellnessTipId/:commentId?_method=DELETE', (req, res) => {
     const { wellnessTipId, commentId } = req.params
     
     WellnessTip.findById(wellnessTipId)

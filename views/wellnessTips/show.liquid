@@ -36,7 +36,7 @@
     
         {% for comments in wellnessTip.comments %}
       
-        <p style="font-style: italic; margin-bottom: 0;">{{ comments.owner }} says:</p>
+        <p style="font-style: italic; margin-bottom: 0;color:#430289">{{ comments.owner.username }} says:</p>
         <p>"{{ comments.note }}"</p>
        
         {% endfor %}

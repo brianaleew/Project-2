@@ -121,7 +121,7 @@ router.get('/:id', (req, res) => {
 	const wellnessTipId = req.params.id
 	WellnessTip.findById(wellnessTipId)
 		.populate('comments.note')
-		.populate('comments.owner', 'ref')
+		.populate('comments.owner', 'username')
 		.then(wellnessTip => {
             const {username, loggedIn, userId} = req.session
 			res.render('wellnessTips/show', { wellnessTip, username, loggedIn, userId })

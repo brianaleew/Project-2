@@ -24,13 +24,13 @@ router.get('/feed', (req, res) => {
 	const { username, loggedIn } = req.session 
 	Product.find({})
 		.populate('comments.note')
-		.populate('owner')
+		.populate('comments.owner', 'username')
 		.then( products => {
 			// allProducts = products
 			// console.log('This is ALL PRODUCTS:', allProducts)
 			WellnessTip.find({})
 				.populate('comments.note')
-				.populate('owner')
+				.populate('comments.owner', 'username')
 				.then( wellnessTips => {
 					// let allTips = wellnessTips
 					// console.log('THESE ARE THE TIPS', allTips)

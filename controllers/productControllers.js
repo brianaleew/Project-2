@@ -143,7 +143,7 @@ router.put('/:id', (req, res) => {
 
 	Product.findByIdAndUpdate(productId, req.body, { new: true })
 		.then(product => {
-			res.redirect(`/products/${product.id}`)
+			res.redirect(`/collection/mine`)
 		})
 		.catch((error) => {
 			res.redirect(`/error?error=${error}`)
@@ -170,7 +170,7 @@ router.delete('/:id', (req, res) => {
 	const productId = req.params.id
 	Product.findByIdAndRemove(productId)
 		.then(product => {
-			res.redirect('/products')
+			res.redirect('/collection/mine')
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)

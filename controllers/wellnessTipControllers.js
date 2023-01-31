@@ -82,7 +82,7 @@ router.post('/', (req, res) => {
 	WellnessTip.create(req.body)
 		.then(wellnessTip => {
 			console.log('this was returned from create', wellnessTip)
-			res.redirect('/wellnessTips')
+			res.redirect(`/collection/mine`)
 		})
 		// .catch(error => {
 		// 	res.redirect(`/error?error=${error}`)
@@ -148,7 +148,7 @@ router.delete('/:id', (req, res) => {
             }
         })
         .then(() => {
-            res.redirect('/wellnessTips/mine')
+            res.redirect(`/collection/mine`)
         })
         .catch(err => {
             console.log(err)

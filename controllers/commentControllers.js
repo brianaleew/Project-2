@@ -115,7 +115,7 @@ router.delete('/delete/:wellnessTipId/:commentId', (req, res) => {
                     theComment.remove()
                     wellnessTip.save()
                     // res.sendStatus(204) //send 204 no content
-                    res.redirect(`/wellnessTips/${wellnessTip.id}`)
+                    res.redirect(`/collection/feed`)
                 } else {
                     // otherwise send a 401 - unauthorized status
                     // res.sendStatus(401)
@@ -137,7 +137,7 @@ router.delete('/delete/:wellnessTipId/:commentId', (req, res) => {
 
 // DELETE -> `/comments/delete/<productId>/<CommentId>`
 // make sure only the author of the comment can delete the comment
-router.delete('/delete/products/:productId/:commentId', (req, res) => {
+router.delete('/delete/:productId/:commentId', (req, res) => {
     const { productId, commentId } = req.params
     
     Product.findById(productId)
@@ -153,7 +153,7 @@ router.delete('/delete/products/:productId/:commentId', (req, res) => {
                     theComment.remove()
                     product.save()
                     // res.sendStatus(204) //send 204 no content
-                    res.redirect(`/products/${product.id}`)
+                    res.redirect(`/collection/feed`)
                 } else {
                     // otherwise send a 401 - unauthorized status
                     // res.sendStatus(401)

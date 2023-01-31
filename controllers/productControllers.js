@@ -117,21 +117,33 @@ router.get('/:id/edit', (req, res) => {
 		})
 })
 
-// update route
+// // update route
+// router.put('/:id', (req, res) => {
+// 	const id = req.params.id
+// 	Product.findById(id)
+// 		.then(product => {
+// 			console.log('THIS IS THE OWNER:', product.owner)
+// 			if (product.owner.username == req.session.userId) {
+// 				return product.updateOne(req.body)
+// 			} else {
+// 				res.redirect(`/error?error=You%20Are%20not%20allowed%20to%20edit%20this%20item`)
+// 			}
+// 			res.redirect(`/products/${id}`)
+// 		}) 
+// 		.then(() => {
+// 			res.redirect(`/collection/mine`)
+// 		})
+// 		.catch((error) => {
+// 			res.redirect(`/error?error=${error}`)
+// 		})
+// })
+// NEW UPDATE ROUTE
 router.put('/:id', (req, res) => {
-	const id = req.params.id
-	Product.findById(id)
+	const productId = req.params.id
+
+	Product.findByIdAndUpdate(productId, req.body, { new: true })
 		.then(product => {
-			console.log('THIS IS THE OWNER:', product.owner)
-			if (product.owner.username == req.session.userId) {
-				return product.updateOne(req.body)
-			} else {
-				res.redirect(`/error?error=You%20Are%20not%20allowed%20to%20edit%20this%20item`)
-			}
-			res.redirect(`/products/${id}`)
-		}) 
-		.then(() => {
-			res.redirect(`/collection/mine`)
+			res.redirect(`/products/${product.id}`)
 		})
 		.catch((error) => {
 			res.redirect(`/error?error=${error}`)

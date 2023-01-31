@@ -28,12 +28,12 @@
             <div class="content-container container-lg">
                 <nav>
                     <div class="container-md">
-                        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+                        <nav class="navbar  me-3 navbar-expand-md bg-transparent">
                             <div class="container-fluid">
                               <a href="/" class="navbar-brand">doWell</a>
                               
                               {% if loggedIn %}
-                                <a href="/collection/mine" class="nav-link text-light"> Hi, {{ username }}
+                                <a href="/collection/mine" class="nav-link " style="color: #770aed; "> Hi, {{ username }}
                                 </a>
                               {% endif %}
                               <button
@@ -44,22 +44,18 @@
                                 aria-controls="navbarNav"
                                 aria-expanded="false"
                                 aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
+                                
                               </button>
                               <div class="collapse navbar-collapse" id="navbarNav">
                                 {% if loggedIn %}
                                   
-                                <a href="/collection/feed" class="nav-link text-light">Wellness Feed</a>
-                                  <a href="/auth/logout" class="nav-link text-light">Log Out</a>
-                                  
-  
-                                 
-                                  
-                                  <a href="/collection/mine" class="nav-link text-light">My Collection</a>
+                                <a style="color: #770aed;" href="/collection/feed"  class="nav-link">Wellness Feed</a>
+                                <a href="/auth/logout" style="color: #770aed; " class="nav-link">Log Out</a>
+                                <a href="/collection/mine" style="color: #770aed; " class="nav-link">My Collection</a>
                                 {% else %}
-                                  <a href="/auth/signup" class="nav-link text-light">Sign Up</a>
-                                  <a href="/auth/login" class="nav-link text-light">Sign In</a>
-                                  <a href="/collection/feed" class="nav-link text-light">Wellness Feed</a>
+                                  <a href="/auth/signup"  style="color: #770aed; "class="nav-link " >Sign Up</a>
+                                  <a href="/auth/login" style="color: #770aed; "class="nav-link ">Sign In</a>
+                                  <a href="/collection/feed" style="color: #770aed; " class="nav-link ">Wellness Feed</a>
                                 {% endif %}
                         
                             

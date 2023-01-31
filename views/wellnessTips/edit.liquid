@@ -1,7 +1,7 @@
 {% layout 'layout.liquid' %}
 {% block content %}
   <div class="container-sm">
-    <form action="/wellnessTips" method="POST">
+    <form action="/wellnessTips/{{ wellnessTip.id }}?_method=PUT" method="POST">
       <fieldset>
         <legend>
           Edit {{ wellnessTip.title }}</legend>
@@ -10,24 +10,28 @@
         <input
           type="text"
           name="title"
+          value="{{ wellnessTip.title }}"
           placeholder="Enter a title for your Tip"
           class="form-control">
         <label class="form-label">Description</label>
         <input
           type="text"
           name="description"
+          value="{{ wellnessTip.description }}"
           placeholder="Tell us about your tip"
           class="form-control">
         <label class="form-label">Good For</label>
         <input
           type="text"
           name="goodFor"
+          value="{{ wellnessTip.goodFor }}"
           placeholder="What does this tip help with?"
           class="form-control">
         <label class="form-label">Sources</label>
         <input
           type="text"
           name="source"
+          value="{{ wellnessTip.source }}"
           placeholder="Support your tip with a link to a source"
           class="form-control">
       </fieldset>

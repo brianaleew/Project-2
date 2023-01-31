@@ -126,7 +126,7 @@
         <p style="font-style: italic; margin-bottom: 0; color:#430289">{{ comments.owner.username }} says : </p>
          <p style="margin-bottom: 2px"> "{{ comments.note }}"</p>
          {% if comments.owner.id == userId %}
-        <form  action="/comments/delete/{{ product.id }}/{{ comments.id }}?_method=DELETE" method="POST">
+        <form  action="/comments/delete/product/{{ product.id }}/{{ comments.id }}?_method=DELETE" method="POST">
           <input
             style="margin-bottom: 5px;padding:2px 5px;"
             class="btn btn-danger view-btn"

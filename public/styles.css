@@ -52,9 +52,87 @@ background: radial-gradient(circle, rgba(198,174,238,1) 0%, rgba(54,40,105,1) 10
 .sub-text {
     text-align: center;
 }
+/* HomePage SlideShow Styling */
+.bubble {
+    border-radius: 15px;
+    background: rgb(198,174,238);
+    background: linear-gradient(0deg, rgba(198,174,238,1) 0%, rgba(246,246,246,1) 100%);
+    margin: 30px 0 0 90px;
+    width: 500px;
+    height: 300px;
+}
+.mySlides {
+    display: none;
+}
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+      
+}
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+
+
+
+
 .sidebar {
-    margin-top: 170px;
+    margin-top: 100px;
     font-size: 20px;
+   
 }
 
 

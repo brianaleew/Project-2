@@ -137,7 +137,7 @@ router.delete('/delete/:wellnessTipId/:commentId', (req, res) => {
 
 // DELETE -> `/comments/delete/<productId>/<CommentId>`
 // make sure only the author of the comment can delete the comment
-router.delete('/delete/:productId/:commentId', (req, res) => {
+router.delete('/delete/product/:productId/:commentId', (req, res) => {
     const { productId, commentId } = req.params
     
     Product.findById(productId)

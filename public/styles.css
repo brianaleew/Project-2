@@ -12,7 +12,7 @@ background: radial-gradient(circle, rgba(198,174,238,1) 0%, rgba(54,40,105,1) 10
 
 }
 
-/* Main Layout (layout.liquid) */
+/* Main Layout (layout.liquid which includes nav bar) */
 .content-container {
     background: rgb(198,174,238);
     background: linear-gradient(0deg, rgba(198,174,238,1) 0%, rgba(246,246,246,1) 100%);
@@ -25,19 +25,6 @@ background: radial-gradient(circle, rgba(198,174,238,1) 0%, rgba(54,40,105,1) 10
 
 }
 
-nav, ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    list-style-type: none;
-   text-decoration: none;
-   margin: 0;
-}
-
-nav, li {
-    padding: 0 20px;
-}
-
 .logo {
     width:100px;
     height: 100px;
@@ -45,9 +32,13 @@ nav, li {
     
 
 }
-.navbar {
-    background-color: rgba(198,174,238,1);
+.nav-style {
+    margin: 0 130px;
+    color: #770aed;
+    font-size: 20px;
+    
 }
+
 
 
 /* Home page Styling (index.liquid) */

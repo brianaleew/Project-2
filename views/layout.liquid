@@ -33,7 +33,7 @@
                               <a href="/" class="navbar-brand">doWell</a>
                               
                               {% if loggedIn %}
-                                <a href="/collection/mine" class="nav-link " style="color: #770aed; "> Hi, {{ username }}
+                                <a href="/collection/mine" class="nav-link " style="color: #770aed; font-size: 20px; "> Hi, {{ username }}
                                 </a>
                               {% endif %}
                               <button
@@ -49,13 +49,14 @@
                               <div class="collapse navbar-collapse" id="navbarNav">
                                 {% if loggedIn %}
                                   
-                                <a style="color: #770aed;" href="/collection/feed"  class="nav-link">Wellness Feed</a>
-                                <a href="/auth/logout" style="color: #770aed; " class="nav-link">Log Out</a>
-                                <a href="/collection/mine" style="color: #770aed; " class="nav-link">My Collection</a>
+                                <a href="/auth/logout" style="color: #770aed; " class="nav-link nav-style">Log Out</a>
+                                <a style="color: #770aed; margin: 0 20px" href="/collection/feed"  class="nav-link nav-style">Wellness Feed</a>
+
+                                <a href="/collection/mine" style="color: #770aed; " class="nav-link nav-style">My Collection</a>
                                 {% else %}
-                                  <a href="/auth/signup"  style="color: #770aed; "class="nav-link " >Sign Up</a>
-                                  <a href="/auth/login" style="color: #770aed; "class="nav-link ">Sign In</a>
-                                  <a href="/collection/feed" style="color: #770aed; " class="nav-link ">Wellness Feed</a>
+                                  <a href="/auth/signup"  style="color: #770aed; "class="nav-link nav-style " >Sign Up</a>
+                                  <a href="/auth/login" style="color: #770aed; "class="nav-link nav-style ">Sign In</a>
+                                  <a href="/collection/feed" style="color: #770aed; " class="nav-link nav-style ">Wellness Feed</a>
                                 {% endif %}
                         
                             

@@ -3,9 +3,9 @@
   <div class="container-sm">
     <form action="/products/ {{ product.id }}?_method=PUT" method="POST">
       <fieldset>
-        <legend>
+        <legend style="margin-top: 30px; font-family: lobster,cursive; font-size: 40px;">
           Edit Product</legend>
-        <label class="form-label">Product Name:
+        <label  class="form-label">Product Name:
         </label>
         <input
           type="text"
@@ -76,6 +76,7 @@
 
       </fieldset>
       <input
+        style="margin: 20px;"
         type="submit"
         value="Edit product"
         class="btn btn-success">

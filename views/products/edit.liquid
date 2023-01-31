@@ -1,7 +1,7 @@
 {% layout 'layout.liquid' %}
 {% block content %}
   <div class="container-sm">
-    <form action="/products/ {{ product.id }}?_method=PUT" method="POST">
+    <form action="/products/{{ product.id }}?_method=PUT" method="POST">
       <fieldset>
         <legend style="margin-top: 30px; font-family: lobster,cursive; font-size: 40px;">
           Edit Product</legend>

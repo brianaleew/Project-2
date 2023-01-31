@@ -115,7 +115,7 @@ router.delete('/delete/:wellnessTipId/:commentId', (req, res) => {
                     theComment.remove()
                     wellnessTip.save()
                     // res.sendStatus(204) //send 204 no content
-                    res.redirect(`/collection/feed`)
+                    res.redirect(`/wellnessTips/${wellnessTipId}`)
                 } else {
                     // otherwise send a 401 - unauthorized status
                     // res.sendStatus(401)
@@ -153,7 +153,7 @@ router.delete('/delete/product/:productId/:commentId', (req, res) => {
                     theComment.remove()
                     product.save()
                     // res.sendStatus(204) //send 204 no content
-                    res.redirect(`/collection/feed`)
+                    res.redirect(`/products/${productId}`)
                 } else {
                     // otherwise send a 401 - unauthorized status
                     // res.sendStatus(401)

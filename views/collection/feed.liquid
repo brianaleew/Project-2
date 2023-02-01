@@ -7,17 +7,12 @@
     
     {% for wellnessTip in wellnessTips %}
       <div class="item-post">
-        {% if starterWellnessTips %}
-            <h3 style="text-align: center;">
-          The powers that be have shared a product!
-            </h3>
-
-        {% else %}
+        
             <h3 style="text-align: center;">
           {{ wellnessTip.owner.username }} has shared a Wellness Tip!
              </h3>
 
-        {% endif %}
+        
         <div class="item-img">
           <img src="{{ wellnessTip.tipImg }}" alt="product img">
         </div>
@@ -84,17 +79,12 @@
 
   {% for product in products %}
     <div class="item-post">
-      {% if starterProducts %}
-        <h3 style="text-align: center;">
-          The powers that be have shared a product!
-        </h3>
-
-      {% else %}
+      
         <h3 style="text-align: center;">
           {{ product.owner.username }} has shared a product!
         </h3>
 
-      {% endif %}
+      
       <div class="item-img">
         <img src="{{ product.productImg }}" alt="product img">
       </div>

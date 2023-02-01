@@ -23,4 +23,9 @@ const imgChange = () => {
     setTimeout('imgChange', time)
 } 
 
-window.onload = changeImg();
+window.onload =changeImg;
+
+
+//Creating a Search Bar 
+
+

@@ -3,21 +3,44 @@
 
 
 
-  <div class="inner-content homepg">
+  <div class="inner-content-home homepg">
 
     <div class="column column-a ">
       <h1 class="welcome">Welcome to doWell
       </h1>
 
-      <h2 class="sub-text">Find and share products you
+      <h2 class="sub-text">Find and share products and tips you
         <span style="font-family: lobster, cursive;">Love</span>
       </h2>
+      
 
-      <div class="bubble">
+      
+      <div class="main-carousel"  data-flickity='{ "autoPlay": 1500, "freeScroll": true, "wrapAround": true }'>
+  <div class="carousel-cell"> <img class="carousel-img" src="https://i.pinimg.com/originals/48/ea/69/48ea699215f03f62be394fbdcf710a03.jpg" alt=""></div>
+  <div class="carousel-cell"> <img class="carousel-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeQzPAcW01noca3H_HoxBOJ2e-hCsACIonIeUxHeKud3yM32lQuS4p8ZhJjQgL83LO1jM&usqp=CAU" alt=""></div>
+  <div class="carousel-cell"> <img class="carousel-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTYGTHT_dVnSVt7wwZkhffETP9T-uiRrGCfb8-3OZVa1r2AmYA5qkn1YpLJxmwSdRzelo&usqp=CAU" alt=""></div>
+  <div class="carousel-cell"> <img class="carousel-img" src="https://i.pinimg.com/736x/3c/44/91/3c44911803156715727a349ffb13b021.jpg" alt=""></div>
+
+
+  ...
+</div>
+
+<div class="links">
+  {% if loggedIn %}
+          <h1 style="text-align: center; ">What's New:</h1>
+        {% else %}
+        <h2 style="font-size: 50px;margin-left: 60px;"> Lets <span style="font-family: lobster, cursive;">doWell !</span></h2>
+          <h2>Join our community:
+            <a href="/auth/signup">Sign Up!</a>
+          </h2>
+          <h2>Already a member?
+            <a href="/auth/login">Log in</a>
+          </h2>
+        {% endif %}
+</div>
           
-          <img name="slide" width="400" height="200">
 
-      </div>
+     
         
 
        
@@ -27,56 +50,6 @@
   </div>
 
 
-    <div class="column sidebar">
 
-      {% if loggedIn %}
-        <h1 style="text-align: center;">What's New:</h1>
-      {% else %}
-        <h2>Join our community:
-          <a href="/auth/signup">Sign Up!</a>
-        </h2>
-        <h2>Already a member?
-          <a href="/auth/login">Log in</a>
-        </h2>
-      {% endif %}
-      <img style="width:400px" src="https://i.pinimg.com/originals/86/93/0a/86930aacc5f2d29342650d76a2951b5c.jpg" alt="">
-
-    </div>
-    <div class="homepage-img"></div>
-  </div>
-
-  {% comment %}
-  <div class="container">
-  <div class="content-container container-md">
-  <nav>
-  <ul>
-  <span class="title">
-
-  </li>
-  </span>
-  <li>
-  <a href=""></a>Wellness Feed</li>
-  <li>
-  <a href=""></a>My Collection</li>
-  <li>
-  <a href=""></a>Log in</li>
-  <li>
-  <a href=""></a>Sign Up</li>
-  </ul>
-  </nav>
-  <div class="home">
-  <div class="home-content">
-  <h1>Welcome to doWell</h1>
-  <img src="https://cdn.freelogodesign.org/files/2ca98406b5cb4aa392b11f0677473b5c/thumb/logo_200x200.png?v=638101844560000000" alt="logo">
-
-  </div>
-
-  </div>
-  </div>
-  </div>
-
-  HOMEPAGE IMAGE ORIGINAL 
-  <img src="https://i.pinimg.com/736x/3c/44/91/3c44911803156715727a349ffb13b021.jpg" alt="">
-
-  {% endcomment %}
+  
 {% endblock %}

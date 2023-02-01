@@ -5,6 +5,7 @@ require("dotenv").config() // make env variables available
 const express = require("express")
 const middleware = require('./utils/middleware')
 
+
 const ExampleRouter = require('./controllers/example')
 const UserRouter = require('./controllers/user')
 const ProductRouter = require('./controllers/productControllers')

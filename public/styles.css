@@ -46,106 +46,39 @@ background: radial-gradient(circle, rgba(198,174,238,1) 0%, rgba(54,40,105,1) 10
     font-size: 80px;
     font-family: lobster, cursive;
     word-spacing: 2px;
-    margin-top: 170px;
+    margin-top: 50px;
     margin-left: 15px;
+    text-align: center;
 }
 .sub-text {
     text-align: center;
 }
-/* HomePage SlideShow Styling */
-.bubble {
-    border-radius: 15px;
-    background: rgb(198,174,238);
-    background: linear-gradient(0deg, rgba(198,174,238,1) 0%, rgba(246,246,246,1) 100%);
-    margin: 30px 0 0 90px;
-    width: 500px;
-    height: 300px;
-}
-.mySlides {
-    display: none;
-}
-.prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-      
-}
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-  }
-
-.text {
-    color: #f2f2f2;
-    font-size: 15px;
-    padding: 8px 12px;
-    position: absolute;
-    bottom: 8px;
-    width: 100%;
-    text-align: center;
-}
-
-.numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
-}
-.dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-}
-.active, .dot:hover {
-    background-color: #717171;
-}
-
-.fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
-
-@keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
-}
-
-
-
-
 
 .sidebar {
-    margin-top: 100px;
+    margin-top: ;
     font-size: 20px;
+    
    
 }
-
 
 .homepg {
     background-image: url("https://img.freepik.com/free-photo/top-view-lavender-concept-spa-products_23-2148295928.jpg?w=740&t=st=1675095355~exp=1675095955~hmac=4f08e2b53efbb7ed36ffcbe4e7ed56d159666b60699b55868ae531b0369eceb2");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 1000px;
+    height: 1400px;
     margin-bottom: 30px;
+    margin-top: ;
 }
 .inner-content {
     display: grid;
     grid-template-columns: 2fr 1fr;
+    /* height:1400px; */
+    
+    
+}
+.inner-content-home {
+    display: grid;
+    grid-template-columns: 1fr ;
     /* height:1400px; */
     
     
@@ -162,6 +95,15 @@ background: radial-gradient(circle, rgba(198,174,238,1) 0%, rgba(54,40,105,1) 10
     
 }
 
+.carousel-img {
+    width: 400px;
+    height: 400px;
+}
+
+.links {
+    margin-top: 50px;
+    text-align: center;
+}
 
 /* Sign up Page Styling */
 .sign-up-form {
@@ -182,7 +124,7 @@ background: radial-gradient(circle, rgba(198,174,238,1) 0%, rgba(54,40,105,1) 10
     justify-content: flex-start;
     height: 1000px;
     width: 1000px;
-    margin: 50px 140px ;
+    margin: 50px 190px ;
 
 }
 
@@ -261,6 +203,19 @@ background: radial-gradient(circle, rgba(198,174,238,1) 0%, rgba(54,40,105,1) 10
     margin-right: 15px;
 }
 
+/* Wellness Feed Search Bar */
+.search-bar {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 300px;
+    gap: .25rem ;
+}
+
+.hide {
+   display:none; 
+
+}
 
 
 

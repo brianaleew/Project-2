@@ -1,6 +1,6 @@
 # Project-2: The doWell App
 
-insert home page img here!
+![ doWell home page](./Images/doWellOfficialHomePage.png)
 
 # Overview
 
@@ -59,27 +59,34 @@ Users should be able to:
 
 #### Products
 
-| **URL**   | **HTTP Verb** | **Action** |
-| --------- | ------------- | ---------- |
-| /         | GET           | index      |
-| /:id      | GET           | show       |
-| /new      | GET           | new        |
-|           | POST          | create     |
-| /:id/edit | GET           | edit       |
-| /:id      | PATCH/PUT     | update     |
-| /:id      | DELETE        | destroy    |
+| **URL**          | **HTTP Verb** | **Action** |
+| ---------------- | ------------- | ---------- |
+| /products        | GET           | index      |
+| /:productId      | GET           | show       |
+| /new             | GET           | new        |
+| /                | POST          | create     |
+| /:productId/edit | GET           | edit       |
+| /:productId      | PATCH/PUT     | update     |
+| /:productId      | DELETE        | destroy    |
 
 #### Wellness Tips
 
-| **URL**   | **HTTP Verb** | **Action** |
-| --------- | ------------- | ---------- |
-| /         | GET           | index      |
-| /:id      | GET           | show       |
-| /new      | GET           | new        |
-|           | POST          | create     |
-| /:id/edit | GET           | edit       |
-| /:id      | PATCH/PUT     | update     |
-| /:id      | DELETE        | destroy    |
+| **URL**               | **HTTP Verb** | **Action** |
+| --------------------- | ------------- | ---------- |
+| /wellnessTips/        | GET           | index      |
+| /wellnessTips/:id     | GET           | show       |
+| /wellnessTips/new     | GET           | new        |
+| /wellnessTips         | POST          | create     |
+| wellnessTips/:id/edit | GET           | edit       |
+| wellnessTips/:id      | PATCH/PUT     | update     |
+| wellnessTips/:id      | DELETE        | destroy    |
+
+#### Collections
+
+| **URL** | **HTTP Verb** | **Action**               |
+| ------- | ------------- | ------------------------ |
+| /feed   | GET           | index ALL items          |
+| /mine   | GET           | index All of users items |
 
 #### Comments
 

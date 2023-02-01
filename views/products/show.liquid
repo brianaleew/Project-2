@@ -50,7 +50,7 @@
           <p>"{{ comments.note }}"</p>
          
           {% if comments.owner.id == userId %}
-          <form  action="/comments/delete/{{ product.id }}/{{ comment.id }}?_method=DELETE" method="POST">
+          <form  action="/comments/delete/product/{{ product.id }}/{{ comments.id }}?_method=DELETE" method="POST">
             <input
               style="margin-bottom: 5px;padding:2px 5px;"
               class="btn btn-danger view-btn"
@@ -94,38 +94,7 @@
         </form>
         {% endif %}
         
-        {% comment  %}  
-        <form action="/comments/{{ product.id }}" method="POST">
-          <fieldset>
-            <legend>Add Comment</legend>
-            <label class="form-label">comment:
-            </label>
-            <input
-              type="text"
-              name="note"
-              class="form-control mb-1">
-          </fieldset>
-          <input
-            type="submit"
-            class="btn btn-success"
-            value="add comment">
-        </form>
-
-
-        {% if product.owner == userId %}
-          <div class="btn-group">
-            <a href="/products/{{ product.id }}/edit" class="btn btn-primary">Edit</a>
-            <form action="/products/{{ product.id }}?_method=DELETE" method="POST">
-              <input
-                type="submit"
-                value="Delete"
-                class="btn btn-danger">
-            </form>
-          </div>
-
-        </div>
-        {% endif %}
-        {% endcomment %}
+        
     </article>
   </div>
 {% endblock %}

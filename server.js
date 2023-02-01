@@ -6,7 +6,7 @@ const express = require("express")
 const middleware = require('./utils/middleware')
 
 
-const ExampleRouter = require('./controllers/example')
+
 const UserRouter = require('./controllers/user')
 const ProductRouter = require('./controllers/productControllers')
 const WellnessTipRouter = require('./controllers/wellnessTipControllers')
@@ -39,7 +39,6 @@ middleware(app)
 
 
 app.use('/auth', UserRouter)
-app.use('/examples', ExampleRouter)
 app.use('/products', ProductRouter)
 app.use('/wellnessTips', WellnessTipRouter)
 app.use('/collection', CollectionRouter)
@@ -53,13 +52,13 @@ app.use('/comments', CommentRouter)
 
 //Home page Route
 app.get('/', (req, res) => {
-    const { username, userId, loggedIn } = req.session
+	const { username, userId, loggedIn } = req.session
 	res.render('index.liquid', { loggedIn, username, userId })
 })
 //Error page Route
 app.get('/error', (req, res) => {
 	const error = req.query.error || 'This Page Does Not Exist'
-    const { username, loggedIn, userId } = req.session
+	const { username, loggedIn, userId } = req.session
 	res.render('error.liquid', { error, username, loggedIn, userId })
 })
 
@@ -74,5 +73,5 @@ app.all('*', (req, res) => {
 //      App Listener        //
 //////////////////////////////
 app.listen(process.env.PORT, () => {
-    console.log(`listening on port ${process.env.PORT}`)
+	console.log(`listening on port ${process.env.PORT}`)
 })

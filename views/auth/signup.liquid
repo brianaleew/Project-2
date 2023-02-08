@@ -1,30 +1,6 @@
 {% layout 'layout.liquid' %}
 {% block content %}
 
-
-{%  comment  %}  
-<div class="inner-content">
-    <div class="container-sm">
-        <h1 style="font-family: lobster, cursive;">Join the party! </h1>
-
-        <form action="/auth/signup" method="POST">
-            <fieldset>
-                <legend>Sign Up Here!</legend>
-                <label class="form-label">Username </label>
-                <input type="text" name="username" placeholder="username" class="form-control" required>
-                <label class="form-label">Password</label>
-                <input type="password" name="password" placeholder="enter password" class="form-control" required>
-            </fieldset>
-            <input type="submit" value="Create Account" class="btn btn-success">
-        </form>
-    </div>
-    <div>
-        <img src="https://i.pinimg.com/736x/0a/e9/d1/0ae9d1e2d48e00d5fe72813c43cd5886.jpg" alt="">
-    </div>
-</div>
- {% endcomment %}
-
-
 <div class="form-container">
     <div class="sign-up-form">
     <h1 style="font-family: lobster, cursive;">Join the party! </h1>

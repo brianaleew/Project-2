@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "seed": "./models/seed.js"
+    "seed": "nodemon ./models/seed.js"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,7 @@
     "liquid-express-views": "^1.0.8",
     "method-override": "^3.0.0",
     "mongoose": "^6.2.4",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.20"
   }
 }

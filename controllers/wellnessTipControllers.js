@@ -1,6 +1,6 @@
 // Import Dependencies
 const express = require('express')
-const WellnessTip = require('../models/wellnessTip')
+const WellnessTip = require('../models/wellnesstip')
 
 // Create router
 const router = express.Router()

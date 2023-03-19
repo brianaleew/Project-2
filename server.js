@@ -22,7 +22,7 @@ const CommentRouter = require('./controllers/commentControllers')
 //////////////////////////////
 const User = require("./models/user")
 const Product = require('./models/product')
-const WellnessTip = require('./models/wellnessTip')
+const WellnessTip = require('./models/wellnesstip')
 const Comment = require('./models/comment')
 
 //////////////////////////////
@@ -40,7 +40,7 @@ middleware(app)
 
 app.use('/auth', UserRouter)
 app.use('/products', ProductRouter)
-app.use('/wellnessTips', WellnessTipRouter)
+app.use('/wellnesstips', WellnessTipRouter)
 app.use('/collection', CollectionRouter)
 app.use('/comments', CommentRouter)
 

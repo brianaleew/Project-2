@@ -3,7 +3,7 @@
 /////////////////////////////////////
 const express = require('express')
 const Product = require('../models/product')
-const WellnessTip = require('../models/wellnessTip')
+const WellnessTip = require('../models/wellnesstip')
 
 
 /////////////////////////////////////

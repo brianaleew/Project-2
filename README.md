@@ -8,7 +8,7 @@ The doWell app is a wellness sharing app where users can sign up and make profil
 
 # Check out the Web App
 
--link will be here upon deployment
+https://dowell.fly.dev/
 
 # User Stories
 
